@@ -5,6 +5,9 @@
  */
 package javagroupproject;
 
+import java.awt.BorderLayout;
+import org.jfree.chart.ChartPanel;
+
 /**
  *
  * @author lingyanjiang
@@ -36,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         otherReportButton = new javax.swing.JButton();
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
+        graphPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -56,59 +60,35 @@ public class MainFrame extends javax.swing.JFrame {
 
         leftPanel.setBackground(new java.awt.Color(38, 42, 51));
         leftPanel.setPreferredSize(new java.awt.Dimension(177, 800));
+        leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dashButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_1.gif"))); // NOI18N
+        dashButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_1.png")));
+        dashButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_1p.png")));
+        dashButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashButtonActionPerformed(evt);
+            }
+        });
+        leftPanel.add(dashButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 60));
 
-        statReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_2.gif"))); // NOI18N
+        statReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_2.png")));
+        statReportButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_2p.png")));
+        leftPanel.add(statReportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 60));
 
-        otherReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_3.gif"))); // NOI18N
+        otherReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_3.png")));
+        otherReportButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_3p.png")));
+        leftPanel.add(otherReportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 150, 60));
 
-        customizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_4.gif"))); // NOI18N
-
-        javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
-        leftPanel.setLayout(leftPanelLayout);
-        leftPanelLayout.setHorizontalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(statReportButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(customizeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(otherReportButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dashButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        leftPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {otherReportButton, statReportButton});
-
-        leftPanelLayout.setVerticalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(dashButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(statReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(otherReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(customizeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
-        );
-
-        leftPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {customizeButton, statReportButton});
+        customizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_4.png")));
+        customizeButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_4p.png")));
+        leftPanel.add(customizeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 150, 60));
 
         bgPanel.add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        graphPanel1.setLayout(new java.awt.BorderLayout());
+        mainPanel.add(graphPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 210));
 
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
 
@@ -117,6 +97,20 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
+        ChartPanel p = JFreeChartTest.generateChart();
+        addChart(p);
+    }//GEN-LAST:event_dashButtonActionPerformed
+
+    /**
+     * This method add chart to the main panel
+     * @param chart 
+     */
+    public void addChart(ChartPanel chart) {
+        graphPanel1.add(chart,BorderLayout.CENTER);
+        graphPanel1.validate();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -133,22 +127,16 @@ public class MainFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MainFrame().setVisible(true);
         });
     }
 
@@ -156,6 +144,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bgPanel;
     private javax.swing.JButton customizeButton;
     private javax.swing.JButton dashButton;
+    private javax.swing.JPanel graphPanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
