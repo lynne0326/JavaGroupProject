@@ -14,16 +14,16 @@ import org.jfree.data.jdbc.JDBCPieDataset;
  */
 public class JFreeChartTest {
     //string to store url,username,password
-    private static final String URL="jdbc:mysql://localhost:3306/jfdatabase";
-    private static final String USER="root";
-    private static final String PASSWORD="abcd";
+    private static final String URL="jdbc:mysql://mydatabase.cwhndt08kykb.us-west-2.rds.amazonaws.com:3306/studentinfor";
+    private static final String USER="lynne";
+    private static final String PASSWORD="abcd1234";
     
     
     public static JDBCPieDataset connectDatabase() throws ClassNotFoundException, SQLException{
         JDBCPieDataset data = null;
         Class.forName("com.mysql.jdbc.Driver");
         try (java.sql.Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            data = new JDBCPieDataset(conn,"select gender, count(1) as numbers from jfdatabase.figure group by gender;");
+            data = new JDBCPieDataset(conn,"select gender, count(1) as numbers from studentinfor.figure group by gender");
         }
         return data;
     }
