@@ -2,6 +2,11 @@ package javagroupproject;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.PLAIN_MESSAGE;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.jdbc.JDBCCategoryDataset;
 import org.jfree.data.jdbc.JDBCPieDataset;
@@ -44,5 +49,30 @@ public class Dbconnection {
         }
         return data;
     }
+    
+    /**
+     * This method is to append data to database
+     * @param filepath
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
+    public static void connectDatabase(String filepath){
+        Dataset data = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (java.sql.Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            Statement state = conn.createStatement()) {
+            state.executeUpdate("load DATA LOCAL INFILE '"+filepath+"' INTO TABLE figure FIELDS TERMINATED BY ',' ENCLOSED BY '' LINES TERMINATED BY '\\n' ");
+            } catch (SQLException ex) {
+            Logger.getLogger(Dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JOptionPane.showMessageDialog(null,"Update data successfully!"," ",
+                PLAIN_MESSAGE);
+        }
+    
     
 }

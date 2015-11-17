@@ -30,14 +30,14 @@ public class JChart {
         
             switch(chartType) {
                 case "pie":
-                    chart = ChartFactory.createPieChart3D(      
+                    chart = ChartFactory.createPieChart(      
                             chartTitle,  // chart title
                             (PieDataset)dataSet, // data
                             true,           // include legend
                             true,           
                             false);
-                    PiePlot3D plot1 = (PiePlot3D) chart.getPlot();
-                    plot1.setBackgroundAlpha(0.5f);                 
+                    PiePlot plot1 = (PiePlot) chart.getPlot();
+                    plot1.setBackgroundAlpha(0f);                 
                     plot1.setDrawingSupplier(getSupplier());
                     break;
                 case "xy":
@@ -56,14 +56,14 @@ public class JChart {
                     //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
                 case "category":
-                    chart = ChartFactory.createBarChart3D(
+                    chart = ChartFactory.createBarChart(
                             chartTitle, "x", "y", 
                             (CategoryDataset)dataSet,
                             PlotOrientation.HORIZONTAL,
                             true,
                             true,
                             false);
-                    CategoryPlot plot3 = (CategoryPlot) chart.getCategoryPlot();
+                    CategoryPlot plot3 = (CategoryPlot) chart.getPlot();
                     plot3.setBackgroundAlpha(0.5f);
                     plot3.setDrawingSupplier(getSupplier());
                     break;
@@ -75,6 +75,8 @@ public class JChart {
     public static DefaultDrawingSupplier getSupplier()
     {
         Paint[] color = new Paint[]{
+                     Color.lightGray,
+                     ChartColor.LIGHT_BLUE,
                      Color.green,
                      Color.red,
                      Color.orange,

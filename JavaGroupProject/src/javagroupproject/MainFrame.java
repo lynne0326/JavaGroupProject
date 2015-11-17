@@ -1,9 +1,13 @@
 package javagroupproject;
 
 import java.awt.BorderLayout;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import org.jfree.chart.ChartPanel;
 
 /**
@@ -37,16 +41,19 @@ public class MainFrame extends javax.swing.JFrame {
         otherReportButton = new javax.swing.JButton();
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
+        updatePanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        pathLabel = new javax.swing.JLabel();
+        dashScrollPane = new javax.swing.JScrollPane();
+        dashPane = new javax.swing.JPanel();
         graphPanel = new javax.swing.JPanel();
         selectYearPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
         yearButton = new javax.swing.JButton();
         jchartScrollPane = new javax.swing.JScrollPane();
-        updatePanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -86,11 +93,71 @@ public class MainFrame extends javax.swing.JFrame {
 
         customizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_4.png")));
         customizeButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_4p.png")));
+        customizeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customizeButtonActionPerformed(evt);
+            }
+        });
         leftPanel.add(customizeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 150, 60));
 
         bgPanel.add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
         mainPanel.setLayout(new java.awt.CardLayout());
+
+        jLabel3.setText("Choose file:");
+
+        jButton1.setText("Browse");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Upload");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        pathLabel.setText("Path:");
+
+        javax.swing.GroupLayout updatePanelLayout = new javax.swing.GroupLayout(updatePanel);
+        updatePanel.setLayout(updatePanelLayout);
+        updatePanelLayout.setHorizontalGroup(
+            updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updatePanelLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pathLabel)
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        updatePanelLayout.setVerticalGroup(
+            updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updatePanelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1)
+                    .addComponent(pathLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(156, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(updatePanel, "card3");
+
+        dashPane.setSize(new java.awt.Dimension(10, 10));
+        dashScrollPane.setViewportView(dashPane);
+
+        dashScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        mainPanel.add(dashScrollPane, "card4");
 
         jLabel2.setText("Select year: ");
 
@@ -140,39 +207,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel.add(graphPanel, "card3");
 
-        jLabel3.setText("Choose file:");
-
-        jButton1.setText("Browse");
-
-        jButton2.setText("Update");
-
-        javax.swing.GroupLayout updatePanelLayout = new javax.swing.GroupLayout(updatePanel);
-        updatePanel.setLayout(updatePanelLayout);
-        updatePanelLayout.setHorizontalGroup(
-            updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(updatePanelLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(546, Short.MAX_VALUE))
-        );
-        updatePanelLayout.setVerticalGroup(
-            updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(updatePanelLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(476, Short.MAX_VALUE))
-        );
-
-        mainPanel.add(updatePanel, "card3");
-
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
 
         getContentPane().add(bgPanel);
@@ -182,22 +216,46 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
         ChartPanel p = null;
+        ChartPanel p2 = null;
         try {
-            p = JFreeChartTest.generateChart();
+            p = Handler.getChart("category", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
+            p2 = Handler.getChart("pie", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        addChart(p);
+        addChart(p, dashPane);
+        addChart(p2,dashPane);
     }//GEN-LAST:event_dashButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFileChooser jf = new JFileChooser(); 
+        jf.showDialog(null,null); 
+        File fi = jf.getSelectedFile(); 
+        String file = fi.getAbsolutePath(); 
+        pathLabel.setText(file);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void customizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customizeButtonActionPerformed
+        
+    }//GEN-LAST:event_customizeButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            Dbconnection.connectDatabase(pathLabel.getText());
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * This method add chart to the main panel
      * @param chart 
      */
-    public void addChart(ChartPanel chart) {
-        graphPanel.add(chart,BorderLayout.CENTER);
-        graphPanel.validate();
+    public void addChart(ChartPanel chart,JPanel panel) {
+        panel.add(chart,BorderLayout.CENTER);
+        panel.validate();
     }
+    
     
     /**
      * @param args the command line arguments
@@ -232,6 +290,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bgPanel;
     private javax.swing.JButton customizeButton;
     private javax.swing.JButton dashButton;
+    private javax.swing.JPanel dashPane;
+    private javax.swing.JScrollPane dashScrollPane;
     private javax.swing.JPanel graphPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -242,6 +302,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton otherReportButton;
+    private javax.swing.JLabel pathLabel;
     private javax.swing.JPanel selectYearPanel;
     private javax.swing.JButton statReportButton;
     private javax.swing.JPanel topPanel;

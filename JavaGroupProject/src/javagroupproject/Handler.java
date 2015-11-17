@@ -24,26 +24,22 @@ public class Handler {
         PieDataset pieData;
         XYDataset xyData;
         
+        ChartPanel p = null;
+        
         if(dataset instanceof JDBCPieDataset){
             pieData = (PieDataset)dataset;
-            //call method in jfreechart
-            //get pie chart
-            //return pie chart
+            p = JChart.generateChart(dataset, "piechart", "pie");
         }
         else if(dataset instanceof JDBCXYDataset){
             xyData = (XYDataset)dataset;
-            //call method in jfreechart
-            //get xy chart
-            //return xy chart
+            p = JChart.generateChart(dataset, "xychart", "xy");
         }
         else if(dataset instanceof JDBCCategoryDataset){
             categoryData = (CategoryDataset)dataset;
-            //call method in jfreechart
-            //get category chart
-            //return category chart
+            p = JChart.generateChart(dataset, "categorychart", "category");
         }
         
-        return null;
+        return p;
         
             
     }
