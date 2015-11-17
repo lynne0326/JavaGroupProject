@@ -18,6 +18,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.xy.XYDataset;
 
+
 /**
  *
  * @author mac
@@ -58,7 +59,7 @@ public class JChart {
                     break;
                 case "category":
                     chart = ChartFactory.createBarChart(
-                            chartTitle, "x", "y", 
+                            chartTitle, " ", " ", 
                             (CategoryDataset)dataSet,
                             PlotOrientation.HORIZONTAL,
                             true,
@@ -70,7 +71,8 @@ public class JChart {
                     break;
             }
             panel = new ChartPanel(chart);   
-            panel.setPreferredSize(new Dimension(400, 200));
+           // panel.setPreferredSize(new Dimension(400, 200));  // too small to show the whole column names of the barchart
+            panel.setPreferredSize(new Dimension(500, 300));
             panel.setBackground(Color.lightGray);
             return panel;
                     

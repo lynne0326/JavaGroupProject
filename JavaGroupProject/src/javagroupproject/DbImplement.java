@@ -33,4 +33,15 @@ public class DbImplement {
         }
         return null;
     }
+    
+    public static ChartPanel citizenshipByYear(String year){
+        ChartPanel p = null;
+        try{
+            p = Handler.getChart("category", "SELECT Citizenship,count(1) as 'Number of Student' FROM studentinfor.student where Year = "+year+" group by Citizenship;");
+        }catch(ClassNotFoundException | SQLException ex){
+         Logger.getLogger(DbImplement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    
+    }
 }

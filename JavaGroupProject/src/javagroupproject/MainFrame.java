@@ -300,18 +300,22 @@ public class MainFrame extends javax.swing.JFrame {
             case 1:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2011"),graphPanelByYear);
+                addChart(DbImplement.citizenshipByYear("2011"),graphPanelByYear);
                 break;
             case 2:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2012"),graphPanelByYear);
+                addChart(DbImplement.citizenshipByYear("2012"),graphPanelByYear);
                 break;
             case 3:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2013"),graphPanelByYear);
+                addChart(DbImplement.citizenshipByYear("2013"),graphPanelByYear);
                 break;
             case 4:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2014"),graphPanelByYear);
+                addChart(DbImplement.citizenshipByYear("2014"),graphPanelByYear);
                 break;
         }
     }//GEN-LAST:event_yearButtonActionPerformed
