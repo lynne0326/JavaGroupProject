@@ -37,16 +37,23 @@ public class MainFrame extends javax.swing.JFrame {
         otherReportButton = new javax.swing.JButton();
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
-        graphPanel1 = new javax.swing.JPanel();
+        graphPanel = new javax.swing.JPanel();
+        selectYearPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        yearComboBox = new javax.swing.JComboBox();
+        yearButton = new javax.swing.JButton();
+        jchartScrollPane = new javax.swing.JScrollPane();
+        updatePanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         bgPanel.setPreferredSize(new java.awt.Dimension(1000, 700));
-        bgPanel.setSize(new java.awt.Dimension(1000, 700));
         bgPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         topPanel.setLayout(new javax.swing.OverlayLayout(topPanel));
@@ -83,10 +90,88 @@ public class MainFrame extends javax.swing.JFrame {
 
         bgPanel.add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
-        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        mainPanel.setLayout(new java.awt.CardLayout());
 
-        graphPanel1.setLayout(new java.awt.BorderLayout());
-        mainPanel.add(graphPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 210));
+        jLabel2.setText("Select year: ");
+
+        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Click here to choose", "2011", "2012", "2013", "2014", "2015" }));
+
+        yearButton.setText("See result");
+
+        javax.swing.GroupLayout selectYearPanelLayout = new javax.swing.GroupLayout(selectYearPanel);
+        selectYearPanel.setLayout(selectYearPanelLayout);
+        selectYearPanelLayout.setHorizontalGroup(
+            selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectYearPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(yearButton)
+                .addContainerGap())
+        );
+        selectYearPanelLayout.setVerticalGroup(
+            selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addComponent(yearButton))
+        );
+
+        javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
+        graphPanel.setLayout(graphPanelLayout);
+        graphPanelLayout.setHorizontalGroup(
+            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(jchartScrollPane)
+                .addContainerGap())
+        );
+        graphPanelLayout.setVerticalGroup(
+            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(graphPanel, "card3");
+
+        jLabel3.setText("Choose file:");
+
+        jButton1.setText("Browse");
+
+        jButton2.setText("Update");
+
+        javax.swing.GroupLayout updatePanelLayout = new javax.swing.GroupLayout(updatePanel);
+        updatePanel.setLayout(updatePanelLayout);
+        updatePanelLayout.setHorizontalGroup(
+            updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updatePanelLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(546, Short.MAX_VALUE))
+        );
+        updatePanelLayout.setVerticalGroup(
+            updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updatePanelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(476, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(updatePanel, "card3");
 
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
 
@@ -110,8 +195,8 @@ public class MainFrame extends javax.swing.JFrame {
      * @param chart 
      */
     public void addChart(ChartPanel chart) {
-        graphPanel1.add(chart,BorderLayout.CENTER);
-        graphPanel1.validate();
+        graphPanel.add(chart,BorderLayout.CENTER);
+        graphPanel.validate();
     }
     
     /**
@@ -147,12 +232,21 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel bgPanel;
     private javax.swing.JButton customizeButton;
     private javax.swing.JButton dashButton;
-    private javax.swing.JPanel graphPanel1;
+    private javax.swing.JPanel graphPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jchartScrollPane;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton otherReportButton;
+    private javax.swing.JPanel selectYearPanel;
     private javax.swing.JButton statReportButton;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JPanel updatePanel;
+    private javax.swing.JButton yearButton;
+    private javax.swing.JComboBox yearComboBox;
     // End of variables declaration//GEN-END:variables
 }
