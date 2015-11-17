@@ -1,6 +1,8 @@
 package javagroupproject;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -41,19 +43,20 @@ public class MainFrame extends javax.swing.JFrame {
         otherReportButton = new javax.swing.JButton();
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
+        dashScrollPane = new javax.swing.JScrollPane(dashPane);
+        dashPane = new javax.swing.JPanel();
         updatePanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         pathLabel = new javax.swing.JLabel();
-        dashScrollPane = new javax.swing.JScrollPane();
-        dashPane = new javax.swing.JPanel();
         graphPanel = new javax.swing.JPanel();
         selectYearPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         yearComboBox = new javax.swing.JComboBox();
         yearButton = new javax.swing.JButton();
         jchartScrollPane = new javax.swing.JScrollPane();
+        graphPanelByYear = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -85,6 +88,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         statReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_2.png")));
         statReportButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_2p.png")));
+        statReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statReportButtonActionPerformed(evt);
+            }
+        });
         leftPanel.add(statReportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 60));
 
         otherReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_3.png")));
@@ -103,6 +111,21 @@ public class MainFrame extends javax.swing.JFrame {
         bgPanel.add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
         mainPanel.setLayout(new java.awt.CardLayout());
+        CardLayout c = (CardLayout)mainPanel.getLayout();
+
+        dashScrollPane.setBorder(null);
+        dashScrollPane.setBounds(new java.awt.Rectangle(0, 0, 827, 621));
+        dashScrollPane.setPreferredSize(new java.awt.Dimension(827, 620));
+
+        dashPane.setPreferredSize(new java.awt.Dimension(800, 300));
+        dashPane.setSize(new java.awt.Dimension(800, 300));
+        dashPane.setPreferredSize(new java.awt.Dimension(20, 20));
+        dashScrollPane.setViewportView(dashPane);
+
+        //dashScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        mainPanel.add(dashScrollPane, "maincard");
+        //dashScrollPane.getViewport().add(dashPane);
 
         jLabel3.setText("Choose file:");
 
@@ -135,7 +158,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pathLabel)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(516, Short.MAX_VALUE))
         );
         updatePanelLayout.setVerticalGroup(
             updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,20 +173,28 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(156, Short.MAX_VALUE))
         );
 
-        mainPanel.add(updatePanel, "card3");
-
-        dashPane.setSize(new java.awt.Dimension(10, 10));
-        dashScrollPane.setViewportView(dashPane);
-
-        dashScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        mainPanel.add(dashScrollPane, "card4");
+        mainPanel.add(updatePanel, "update");
 
         jLabel2.setText("Select year: ");
 
-        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Click here to choose", "2011", "2012", "2013", "2014", "2015" }));
+        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Click here to choose", "2011", "2012", "2013", "2014" }));
+        yearComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                yearComboBoxItemStateChanged(evt);
+            }
+        });
+        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearComboBoxActionPerformed(evt);
+            }
+        });
 
         yearButton.setText("See result");
+        yearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout selectYearPanelLayout = new javax.swing.GroupLayout(selectYearPanel);
         selectYearPanel.setLayout(selectYearPanelLayout);
@@ -181,10 +212,13 @@ public class MainFrame extends javax.swing.JFrame {
         selectYearPanelLayout.setVerticalGroup(
             selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel2)
                 .addComponent(yearButton))
         );
+
+        jchartScrollPane.setBorder(null);
+        jchartScrollPane.setViewportView(graphPanelByYear);
 
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
         graphPanel.setLayout(graphPanelLayout);
@@ -205,7 +239,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE))
         );
 
-        mainPanel.add(graphPanel, "card3");
+        mainPanel.add(graphPanel, "graphPanel");
 
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
 
@@ -215,6 +249,8 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
+        CardLayout c = (CardLayout)mainPanel.getLayout();
+        c.show(mainPanel, "maincard");
         ChartPanel p = null;
         ChartPanel p2 = null;
         try {
@@ -236,16 +272,49 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void customizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customizeButtonActionPerformed
-        
+        CardLayout c = (CardLayout)mainPanel.getLayout();
+        c.show(mainPanel, "update");
     }//GEN-LAST:event_customizeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            Dbconnection.connectDatabase(pathLabel.getText());
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Dbconnection.connectDatabase(pathLabel.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void statReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statReportButtonActionPerformed
+        
+        CardLayout c = (CardLayout)mainPanel.getLayout();
+        c.show(mainPanel, "graphPanel");
+    }//GEN-LAST:event_statReportButtonActionPerformed
+
+    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearComboBoxActionPerformed
+
+    private void yearComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_yearComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearComboBoxItemStateChanged
+
+    private void yearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearButtonActionPerformed
+        int index = yearComboBox.getSelectedIndex();
+        switch(index) {
+            case 1:
+                graphPanelByYear.removeAll();
+                addChart(DbImplement.genderByYear("2011"),graphPanelByYear);
+                break;
+            case 2:
+                graphPanelByYear.removeAll();
+                addChart(DbImplement.genderByYear("2012"),graphPanelByYear);
+                break;
+            case 3:
+                graphPanelByYear.removeAll();
+                addChart(DbImplement.genderByYear("2013"),graphPanelByYear);
+                break;
+            case 4:
+                graphPanelByYear.removeAll();
+                addChart(DbImplement.genderByYear("2014"),graphPanelByYear);
+                break;
+        }
+    }//GEN-LAST:event_yearButtonActionPerformed
 
     /**
      * This method add chart to the main panel
@@ -293,6 +362,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel dashPane;
     private javax.swing.JScrollPane dashScrollPane;
     private javax.swing.JPanel graphPanel;
+    private javax.swing.JPanel graphPanelByYear;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

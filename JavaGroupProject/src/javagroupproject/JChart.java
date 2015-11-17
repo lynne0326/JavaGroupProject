@@ -5,6 +5,7 @@
  */
 package javagroupproject;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Paint;
 import java.sql.SQLException;
 import org.jfree.chart.ChartColor;
@@ -68,7 +69,9 @@ public class JChart {
                     plot3.setDrawingSupplier(getSupplier());
                     break;
             }
-            panel = new ChartPanel(chart);            
+            panel = new ChartPanel(chart);   
+            panel.setPreferredSize(new Dimension(400, 200));
+            panel.setBackground(Color.lightGray);
             return panel;
                     
     }
