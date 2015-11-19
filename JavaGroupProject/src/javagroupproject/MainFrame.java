@@ -266,7 +266,7 @@ public class MainFrame extends javax.swing.JFrame {
         ChartPanel p = null;
         ChartPanel p2 = null;
         try {
-            p = Handler.getChart("Number of students by gender","category", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
+            p = Handler.getChart("Number of students by gender","categoryx", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
             p2 = Handler.getChart("Number of studets by","pie", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);

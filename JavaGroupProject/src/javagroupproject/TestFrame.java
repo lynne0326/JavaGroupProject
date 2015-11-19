@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jfree.chart.ChartPanel;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
+import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 
 /**
  *
@@ -50,13 +52,13 @@ public class TestFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            ChartPanel p = Handler.getChart("histogram", "histogram", "select ArrivalyearinUSA, count(1) from studentinfor.student group by ArrivalyearinUSA;");
-            jPanel1.add(p,BorderLayout.CENTER);
-            jPanel1.validate();
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(TestFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+////            ChartPanel p = Handler.getChart("histogram", "histogram", "select ArrivalyearinUSA, count(1) from studentinfor.student group by ArrivalyearinUSA;");
+////            jPanel1.add(p,BorderLayout.CENTER);
+////            jPanel1.validate();
+//        } catch (ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(TestFrame.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
