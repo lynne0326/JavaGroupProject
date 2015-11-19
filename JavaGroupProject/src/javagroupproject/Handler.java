@@ -34,9 +34,15 @@ public class Handler {
             xyData = (XYDataset)dataset;
             p = JChart.generateChart(dataset, "xychart", "xy");
         }
+        
         else if(dataset instanceof JDBCCategoryDataset){
             categoryData = (CategoryDataset)dataset;
-            p = JChart.generateChart(dataset, "categorychart", "category");
+            if(chartType.equals("category")){
+                p = JChart.generateChart(dataset, "categorychart", "category");
+            }
+            else if(chartType.equals("line")) {
+                p = JChart.generateChart(dataset, "linechart", "line");
+            }
         }
         
         return p;

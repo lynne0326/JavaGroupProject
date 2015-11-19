@@ -69,6 +69,21 @@ public class JChart {
                     plot3.setBackgroundAlpha(0.5f);
                     plot3.setDrawingSupplier(getSupplier());
                     break;
+                case "line":
+                    chart = ChartFactory.createLineChart(      
+                            chartTitle, "x","y", // chart title
+                           (CategoryDataset)dataSet,// data
+                            PlotOrientation.VERTICAL,
+                            true,           // include legend
+                            true,
+                            false);
+                    CategoryPlot plot4 = (CategoryPlot) chart.getPlot();
+                    plot4.setBackgroundAlpha(0.5f);
+                    plot4.setDomainGridlinePaint(Color.white); 
+                    plot4.setRangeGridlinePaint(Color.white);
+                    plot4.setDrawingSupplier(getSupplier()); 
+                    //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
+                    break;
             }
             panel = new ChartPanel(chart);   
            // panel.setPreferredSize(new Dimension(400, 200));  // too small to show the whole column names of the barchart

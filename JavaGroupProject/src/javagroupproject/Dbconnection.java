@@ -43,7 +43,10 @@ public class Dbconnection {
                     break;
                 case "category":
                     data = new JDBCCategoryDataset(conn, query);
-                    break;   
+                    break;  
+                case "line":
+                    data = new JDBCCategoryDataset(conn, query);
+                    break;
             }
 
         }

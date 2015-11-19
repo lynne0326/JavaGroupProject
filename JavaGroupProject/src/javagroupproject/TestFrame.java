@@ -51,7 +51,7 @@ public class TestFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            ChartPanel p = Handler.getChart("category", "SELECT * FROM studentinfor.figure");
+            ChartPanel p = Handler.getChart("line", "SELECT * FROM studentinfor.figure");
             jPanel1.add(p,BorderLayout.CENTER);
             jPanel1.validate();
         } catch (ClassNotFoundException | SQLException ex) {
