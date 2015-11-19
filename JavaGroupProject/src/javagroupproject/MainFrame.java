@@ -110,13 +110,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         bgPanel.add(leftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
+        mainPanel.setBackground(new java.awt.Color(235, 236, 238));
         mainPanel.setLayout(new java.awt.CardLayout());
         CardLayout c = (CardLayout)mainPanel.getLayout();
 
+        dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         dashScrollPane.setBorder(null);
         dashScrollPane.setBounds(new java.awt.Rectangle(0, 0, 827, 621));
         dashScrollPane.setPreferredSize(new java.awt.Dimension(827, 620));
 
+        dashPane.setBackground(new java.awt.Color(235, 236, 238));
         dashPane.setPreferredSize(new java.awt.Dimension(800, 300));
         dashPane.setSize(new java.awt.Dimension(800, 300));
         dashPane.setPreferredSize(new java.awt.Dimension(20, 20));
@@ -126,6 +129,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel.add(dashScrollPane, "maincard");
         //dashScrollPane.getViewport().add(dashPane);
+
+        updatePanel.setBackground(new java.awt.Color(235, 236, 238));
 
         jLabel3.setText("Choose file:");
 
@@ -175,6 +180,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel.add(updatePanel, "update");
 
+        graphPanel.setBackground(new java.awt.Color(235, 236, 238));
+
+        selectYearPanel.setBackground(new java.awt.Color(235, 236, 238));
+
         jLabel2.setText("Select year: ");
 
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Click here to choose", "2011", "2012", "2013", "2014" }));
@@ -217,7 +226,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(yearButton))
         );
 
+        jchartScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         jchartScrollPane.setBorder(null);
+
+        graphPanelByYear.setBackground(new java.awt.Color(235, 236, 238));
         jchartScrollPane.setViewportView(graphPanelByYear);
 
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
@@ -301,21 +313,25 @@ public class MainFrame extends javax.swing.JFrame {
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2011"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2011"),graphPanelByYear);
+                addChart(DbImplement.courseByYear("2011"), graphPanelByYear);
                 break;
             case 2:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2012"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2012"),graphPanelByYear);
+                addChart(DbImplement.courseByYear("2012"), graphPanelByYear);
                 break;
             case 3:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2013"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2013"),graphPanelByYear);
+                addChart(DbImplement.courseByYear("2013"), graphPanelByYear);
                 break;
             case 4:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2014"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2014"),graphPanelByYear);
+                addChart(DbImplement.courseByYear("2014"), graphPanelByYear);
                 break;
         }
     }//GEN-LAST:event_yearButtonActionPerformed

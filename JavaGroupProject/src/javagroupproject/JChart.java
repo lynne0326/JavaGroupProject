@@ -15,6 +15,8 @@ import org.jfree.chart.plot.*;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.xy.XYDataset;
 
@@ -41,6 +43,9 @@ public class JChart {
                     PiePlot plot1 = (PiePlot) chart.getPlot();
                     plot1.setBackgroundAlpha(0f);                 
                     plot1.setDrawingSupplier(getSupplier());
+                    plot1.setOutlinePaint(null);
+                    plot1.setShadowPaint(null);
+                    plot1.setLabelOutlinePaint(null);
                     break;
                 case "xy":
                     chart = ChartFactory.createXYLineChart(      
@@ -52,6 +57,7 @@ public class JChart {
                             false);
                     XYPlot plot2 = (XYPlot) chart.getPlot();
                     plot2.setBackgroundAlpha(0.5f);
+                    
                     plot2.setDomainGridlinePaint(Color.white); 
                     plot2.setRangeGridlinePaint(Color.white);
                     plot2.setDrawingSupplier(getSupplier()); 
@@ -61,13 +67,16 @@ public class JChart {
                     chart = ChartFactory.createBarChart(
                             chartTitle, " ", " ", 
                             (CategoryDataset)dataSet,
-                            PlotOrientation.HORIZONTAL,
+                            PlotOrientation.VERTICAL,
                             true,
                             true,
                             false);
                     CategoryPlot plot3 = (CategoryPlot) chart.getPlot();
                     plot3.setBackgroundAlpha(0.5f);
                     plot3.setDrawingSupplier(getSupplier());
+                    BarRenderer customBarRenderer = (BarRenderer) plot3.getRenderer();
+                    customBarRenderer.setBarPainter( new StandardBarPainter() );
+                    customBarRenderer.setItemMargin(-0.01);
                     break;
                 case "line":
                     chart = ChartFactory.createLineChart(      
@@ -85,18 +94,22 @@ public class JChart {
                     //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
             }
+            chart.setBorderVisible(false);
+            chart.setBackgroundPaint(null);
+            
             panel = new ChartPanel(chart);   
-           // panel.setPreferredSize(new Dimension(400, 200));  // too small to show the whole column names of the barchart
-            panel.setPreferredSize(new Dimension(500, 300));
-            panel.setBackground(Color.lightGray);
+            panel.setPreferredSize(new Dimension(400, 300));
+            panel.setOpaque(false);
             return panel;
                     
     }
     public static DefaultDrawingSupplier getSupplier()
     {
         Paint[] color = new Paint[]{
-                     Color.lightGray,
+                     new Color(59,189,211),
+                     new Color(178,184,194),
                      ChartColor.LIGHT_BLUE,
+                     Color.lightGray,
                      Color.green,
                      Color.red,
                      Color.orange,

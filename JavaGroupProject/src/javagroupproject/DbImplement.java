@@ -25,9 +25,9 @@ public class DbImplement {
         return p;
     }
     
-    public static ChartPanel scoreByYear(String year) {
+    public static ChartPanel courseByYear(String year) {
         try {
-            return Handler.getChart("category", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
+            return Handler.getChart("category", "SELECT Course,count(1) as 'Number of course' FROM studentinfor.student where "+ year +" group by course;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DbImplement.class.getName()).log(Level.SEVERE, null, ex);
         }
