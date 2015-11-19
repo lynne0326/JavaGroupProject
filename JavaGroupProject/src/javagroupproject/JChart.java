@@ -18,6 +18,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYDataset;
 
 
@@ -47,10 +48,9 @@ public class JChart {
                     plot1.setShadowPaint(null);
                     plot1.setLabelOutlinePaint(null);
                     break;
-                case "xy":
-                    chart = ChartFactory.createXYLineChart(      
-                            chartTitle, "x","y", // chart title
-                           (XYDataset)dataSet,// data
+                case "histogram":
+                    chart = ChartFactory.createHistogram(chartTitle, "x","y", 
+                            (IntervalXYDataset)(XYDataset)dataSet,// data
                             PlotOrientation.VERTICAL,
                             true,           // include legend
                             true,
@@ -63,7 +63,7 @@ public class JChart {
                     plot2.setDrawingSupplier(getSupplier()); 
                     //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
-                case "category":
+                case "categoryx":
                     chart = ChartFactory.createBarChart(
                             chartTitle, " ", " ", 
                             (CategoryDataset)dataSet,
@@ -77,6 +77,21 @@ public class JChart {
                     BarRenderer customBarRenderer = (BarRenderer) plot3.getRenderer();
                     customBarRenderer.setBarPainter( new StandardBarPainter() );
                     customBarRenderer.setItemMargin(-0.01);
+                    break;
+                case "categoryy":
+                    chart = ChartFactory.createBarChart(
+                            chartTitle, " ", " ", 
+                            (CategoryDataset)dataSet,
+                            PlotOrientation.HORIZONTAL,
+                            true,
+                            true,
+                            false);
+                    CategoryPlot plot5 = (CategoryPlot) chart.getPlot();
+                    plot5.setBackgroundAlpha(0.5f);
+                    plot5.setDrawingSupplier(getSupplier());
+                    BarRenderer customBarRenderer2 = (BarRenderer) plot5.getRenderer();
+                    customBarRenderer2.setBarPainter( new StandardBarPainter() );
+                    customBarRenderer2.setItemMargin(-0.01);
                     break;
                 case "line":
                     chart = ChartFactory.createLineChart(      

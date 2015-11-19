@@ -41,11 +41,17 @@ public class Dbconnection {
                 case "xy":
                     data = new JDBCXYDataset(conn, query);
                     break;
-                case "category":
+                case "categoryx":
                     data = new JDBCCategoryDataset(conn, query);
                     break;  
+                case "categoryy":
+                    data = new JDBCCategoryDataset(conn, query);
+                    break; 
                 case "line":
                     data = new JDBCCategoryDataset(conn, query);
+                    break;
+                case "histogram":
+                    data = new JDBCXYDataset(conn,query);
                     break;
             }
 

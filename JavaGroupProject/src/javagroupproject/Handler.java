@@ -16,7 +16,7 @@ import org.jfree.data.xy.XYDataset;
  */
 public class Handler {
     
-    public static ChartPanel getChart(String chartType,String query) throws ClassNotFoundException, SQLException{
+    public static ChartPanel getChart(String title,String chartType,String query) throws ClassNotFoundException, SQLException{
         //get dataset
         Dataset dataset = Dbconnection.connectDatabase(chartType, query);
         
@@ -28,20 +28,23 @@ public class Handler {
         
         if(dataset instanceof JDBCPieDataset){
             pieData = (PieDataset)dataset;
-            p = JChart.generateChart(dataset, "piechart", "pie");
+            p = JChart.generateChart(dataset, title, "pie");
         }
         else if(dataset instanceof JDBCXYDataset){
             xyData = (XYDataset)dataset;
-            p = JChart.generateChart(dataset, "xychart", "xy");
+            p = JChart.generateChart(dataset, title, "histogram");
         }
         
         else if(dataset instanceof JDBCCategoryDataset){
             categoryData = (CategoryDataset)dataset;
-            if(chartType.equals("category")){
-                p = JChart.generateChart(dataset, "categorychart", "category");
+            if(chartType.equals("categoryx")){
+                p = JChart.generateChart(dataset, title, "categoryx");
+            }
+            else if(chartType.equals("categoryy")){
+                p = JChart.generateChart(dataset, title, "categoryy");
             }
             else if(chartType.equals("line")) {
-                p = JChart.generateChart(dataset, "linechart", "line");
+                p = JChart.generateChart(dataset, title, "line");
             }
         }
         
