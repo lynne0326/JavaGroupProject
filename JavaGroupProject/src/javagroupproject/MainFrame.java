@@ -261,20 +261,29 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
-        CardLayout c = (CardLayout)mainPanel.getLayout();
-        c.show(mainPanel, "maincard");
-        ChartPanel p = null;
+        CardLayout c = (CardLayout)mainPanel.getLayout(); 
+        c.show(mainPanel, "minicard");
+    }//GEN-LAST:event_dashButtonActionPerformed
+
+public void generalReport()
+{
+        CardLayout c = (CardLayout)mainPanel.getLayout(); 
+        c.show(mainPanel, "minicard");
+        ChartPanel p1 = null;
         ChartPanel p2 = null;
+        ChartPanel p3 = null;
         try {
-            p = Handler.getChart("Number of students by gender","categoryx", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
-            p2 = Handler.getChart("Number of studets by","pie", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
+            p1 = Handler.getChart("Number of students by gender","categoryy", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
+            p2 = Handler.getChart("Number of studets by gender","pie", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
+            p3 = Handler.getChart("Average GPA by year","line", "SELECT Year,AVG(GPA) as 'GPA' FROM studentinfor.student group by Year;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        addChart(p, dashPane);
+        addChart(p1,dashPane);
         addChart(p2,dashPane);
-    }//GEN-LAST:event_dashButtonActionPerformed
-
+        addChart(p3,dashPane);    
+}
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser jf = new JFileChooser(); 
         jf.showDialog(null,null); 
@@ -371,7 +380,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new MainFrame().setVisible(true);
+            MainFrame mainFrame = new MainFrame();
+            mainFrame.setVisible(true);
+            mainFrame.generalReport();
         });
     }
 

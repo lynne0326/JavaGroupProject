@@ -41,8 +41,7 @@ public class JChart {
                             true,           // include legend
                             true,           
                             false);
-                    PiePlot plot1 = (PiePlot) chart.getPlot();
-                    plot1.setBackgroundAlpha(0f);                 
+                    PiePlot plot1 = (PiePlot) chart.getPlot();                
                     plot1.setDrawingSupplier(getSupplier());
                     plot1.setOutlinePaint(null);
                     plot1.setShadowPaint(null);
@@ -80,7 +79,7 @@ public class JChart {
                     break;
                 case "categoryy":
                     chart = ChartFactory.createBarChart(
-                            chartTitle, " ", " ", 
+                            chartTitle, "Gender", "Number", 
                             (CategoryDataset)dataSet,
                             PlotOrientation.HORIZONTAL,
                             true,
@@ -95,7 +94,7 @@ public class JChart {
                     break;
                 case "line":
                     chart = ChartFactory.createLineChart(      
-                            chartTitle, "x","y", // chart title
+                            chartTitle, "Year","GPA Grade", // chart title
                            (CategoryDataset)dataSet,// data
                             PlotOrientation.VERTICAL,
                             true,           // include legend
