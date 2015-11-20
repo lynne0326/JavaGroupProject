@@ -262,13 +262,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
         CardLayout c = (CardLayout)mainPanel.getLayout(); 
-        c.show(mainPanel, "minicard");
+        c.show(mainPanel, "maincard");
+
     }//GEN-LAST:event_dashButtonActionPerformed
 
 public void generalReport()
 {
         CardLayout c = (CardLayout)mainPanel.getLayout(); 
-        c.show(mainPanel, "minicard");
+        c.show(mainPanel, "maincard");
         ChartPanel p1 = null;
         ChartPanel p2 = null;
         ChartPanel p3 = null;
