@@ -46,6 +46,7 @@ public class JChart {
                     plot1.setOutlinePaint(null);
                     plot1.setShadowPaint(null);
                     plot1.setLabelOutlinePaint(null);
+                    plot1.setBackgroundPaint(null);
                     break;
                 case "histogram":
                     chart = ChartFactory.createHistogram(chartTitle, "x","y", 

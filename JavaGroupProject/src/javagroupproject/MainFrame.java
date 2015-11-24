@@ -263,7 +263,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
         CardLayout c = (CardLayout)mainPanel.getLayout(); 
         c.show(mainPanel, "maincard");
-
+        generalReport();
     }//GEN-LAST:event_dashButtonActionPerformed
 
 public void generalReport()
@@ -383,7 +383,7 @@ public void generalReport()
         java.awt.EventQueue.invokeLater(() -> {
             MainFrame mainFrame = new MainFrame();
             mainFrame.setVisible(true);
-            mainFrame.generalReport();
+            
         });
     }
 
