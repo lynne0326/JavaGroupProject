@@ -7,6 +7,7 @@ package javagroupproject;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Paint;
+import java.sql.*;
 import java.sql.SQLException;
 import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartFactory;
@@ -48,21 +49,6 @@ public class JChart {
                     plot1.setShadowPaint(null);
                     plot1.setLabelOutlinePaint(null);
                     plot1.setBackgroundPaint(null);
-                    break;
-                case "histogram":
-                    chart = ChartFactory.createHistogram(chartTitle, "x","y", 
-                            (IntervalXYDataset)(XYDataset)dataSet,// data
-                            PlotOrientation.VERTICAL,
-                            true,           // include legend
-                            true,
-                            false);
-                    XYPlot plot2 = (XYPlot) chart.getPlot();
-                    plot2.setBackgroundAlpha(0.5f);
-                    
-                    plot2.setDomainGridlinePaint(Color.white); 
-                    plot2.setRangeGridlinePaint(Color.white);
-                    plot2.setDrawingSupplier(getSupplier()); 
-                    //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
                 case "categoryx":
                     chart = ChartFactory.createBarChart(

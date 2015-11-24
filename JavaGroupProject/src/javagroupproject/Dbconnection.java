@@ -50,9 +50,6 @@ public class Dbconnection {
                 case "line":
                     data = new JDBCCategoryDataset(conn, query);
                     break;
-                case "histogram":
-                    data = new JDBCXYDataset(conn,query);
-                    break;
             }
 
         }
