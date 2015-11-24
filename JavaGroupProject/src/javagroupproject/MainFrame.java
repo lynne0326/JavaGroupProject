@@ -3,6 +3,7 @@ package javagroupproject;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -43,6 +44,13 @@ public class MainFrame extends javax.swing.JFrame {
         otherReportButton = new javax.swing.JButton();
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
+        welcomePane = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         dashScrollPane = new javax.swing.JScrollPane(dashPane);
         jPanel3 = new javax.swing.JPanel();
         dashPane = new javax.swing.JPanel();
@@ -116,6 +124,68 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(235, 236, 238));
         mainPanel.setLayout(new java.awt.CardLayout());
         CardLayout c = (CardLayout)mainPanel.getLayout();
+
+        welcomePane.setBackground(new java.awt.Color(235, 236, 238));
+        welcomePane.setPreferredSize(new java.awt.Dimension(851, 260));
+
+        jLabel4.setText("WELCOME!");
+        Font font=new Font("Avenir",Font.BOLD,36);
+        jLabel4.setFont(font);
+
+        jLabel5.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel5.setText("Click left buttons to view reports.");
+
+        jLabel6.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("Dashboard: General report for data from 2010-2014.");
+
+        jLabel7.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText("Statistics Report: View report by year.");
+
+        jLabel8.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Other Report: In-depth analytical report.");
+
+        jLabel9.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("Customize Report: Add your data to exist data.");
+
+        javax.swing.GroupLayout welcomePaneLayout = new javax.swing.GroupLayout(welcomePane);
+        welcomePane.setLayout(welcomePaneLayout);
+        welcomePaneLayout.setHorizontalGroup(
+            welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePaneLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addContainerGap(233, Short.MAX_VALUE))
+        );
+        welcomePaneLayout.setVerticalGroup(
+            welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(welcomePaneLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addContainerGap(290, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(welcomePane, "welcome");
 
         dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         dashScrollPane.setBorder(null);
@@ -278,7 +348,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(jchartScrollPane)
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         graphPanelLayout.setVerticalGroup(
@@ -442,6 +512,12 @@ public void generalReport()
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jchartScrollPane;
@@ -453,6 +529,7 @@ public void generalReport()
     private javax.swing.JButton statReportButton;
     private javax.swing.JPanel topPanel;
     private javax.swing.JPanel updatePanel;
+    private javax.swing.JPanel welcomePane;
     private javax.swing.JButton yearButton;
     private javax.swing.JComboBox yearComboBox;
     // End of variables declaration//GEN-END:variables
