@@ -45,20 +45,13 @@ public class MainFrame extends javax.swing.JFrame {
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         welcomePane = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        dashScrollPane = new javax.swing.JScrollPane(dashPane);
-        jPanel3 = new javax.swing.JPanel();
-        dashPane = new javax.swing.JPanel();
-        updatePanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        pathLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         graphPanel = new javax.swing.JPanel();
         selectYearPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,6 +60,14 @@ public class MainFrame extends javax.swing.JFrame {
         jchartScrollPane = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         graphPanelByYear = new javax.swing.JPanel();
+        dashScrollPane = new javax.swing.JScrollPane(dashPane);
+        jPanel3 = new javax.swing.JPanel();
+        dashPane = new javax.swing.JPanel();
+        updatePanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        pathLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -127,65 +128,142 @@ public class MainFrame extends javax.swing.JFrame {
 
         welcomePane.setBackground(new java.awt.Color(235, 236, 238));
         welcomePane.setPreferredSize(new java.awt.Dimension(851, 260));
+        welcomePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setText("WELCOME!");
-        Font font=new Font("Avenir",Font.BOLD,36);
-        jLabel4.setFont(font);
-
-        jLabel5.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 177, 252));
         jLabel5.setText("Click left buttons to view reports.");
+        welcomePane.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("Dashboard: General report for data from 2010-2014.");
+        jLabel6.setText("Dashboard: View total report for data from 2010-2014.");
+        welcomePane.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Statistics Report: View report by year.");
+        welcomePane.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Other Report: In-depth analytical report.");
+        welcomePane.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Customize Report: Add your data to exist data.");
+        welcomePane.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        javax.swing.GroupLayout welcomePaneLayout = new javax.swing.GroupLayout(welcomePane);
-        welcomePane.setLayout(welcomePaneLayout);
-        welcomePaneLayout.setHorizontalGroup(
-            welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(welcomePaneLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
-                .addContainerGap(233, Short.MAX_VALUE))
-        );
-        welcomePaneLayout.setVerticalGroup(
-            welcomePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(welcomePaneLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addContainerGap(290, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/triangle.png"))); // NOI18N
+        welcomePane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 750, 520));
+
+        jLabel12.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 166, 220));
+        jLabel12.setText("Welcome!");
+        welcomePane.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         mainPanel.add(welcomePane, "welcome");
+
+        graphPanel.setBackground(new java.awt.Color(235, 236, 238));
+
+        selectYearPanel.setBackground(new java.awt.Color(235, 236, 238));
+
+        jLabel2.setText("Select year: ");
+
+        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Click here to choose", "2011", "2012", "2013", "2014" }));
+        yearComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                yearComboBoxItemStateChanged(evt);
+            }
+        });
+        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearComboBoxActionPerformed(evt);
+            }
+        });
+
+        yearButton.setText("See result");
+        yearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout selectYearPanelLayout = new javax.swing.GroupLayout(selectYearPanel);
+        selectYearPanel.setLayout(selectYearPanelLayout);
+        selectYearPanelLayout.setHorizontalGroup(
+            selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectYearPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(yearButton)
+                .addContainerGap())
+        );
+        selectYearPanelLayout.setVerticalGroup(
+            selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addComponent(yearButton))
+        );
+
+        jchartScrollPane.setBackground(new java.awt.Color(235, 236, 238));
+        jchartScrollPane.setBorder(null);
+        jchartScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jPanel1.setBackground(new java.awt.Color(235, 236, 238));
+        jPanel1.setToolTipText("");
+        jPanel1.setPreferredSize(new java.awt.Dimension(851, 744));
+
+        graphPanelByYear.setBackground(new java.awt.Color(235, 236, 238));
+        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 744));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 851, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)))
+        );
+
+        jchartScrollPane.setViewportView(jPanel1);
+
+        javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
+        graphPanel.setLayout(graphPanelLayout);
+        graphPanelLayout.setHorizontalGroup(
+            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        graphPanelLayout.setVerticalGroup(
+            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(graphPanelLayout.createSequentialGroup()
+                .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(graphPanel, "graphPanel");
 
         dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         dashScrollPane.setBorder(null);
@@ -260,106 +338,6 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         mainPanel.add(updatePanel, "update");
-
-        graphPanel.setBackground(new java.awt.Color(235, 236, 238));
-
-        selectYearPanel.setBackground(new java.awt.Color(235, 236, 238));
-
-        jLabel2.setText("Select year: ");
-
-        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Click here to choose", "2011", "2012", "2013", "2014" }));
-        yearComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                yearComboBoxItemStateChanged(evt);
-            }
-        });
-        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearComboBoxActionPerformed(evt);
-            }
-        });
-
-        yearButton.setText("See result");
-        yearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout selectYearPanelLayout = new javax.swing.GroupLayout(selectYearPanel);
-        selectYearPanel.setLayout(selectYearPanelLayout);
-        selectYearPanelLayout.setHorizontalGroup(
-            selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(selectYearPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(yearButton)
-                .addContainerGap())
-        );
-        selectYearPanelLayout.setVerticalGroup(
-            selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(selectYearPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel2)
-                .addComponent(yearButton))
-        );
-
-        jchartScrollPane.setBackground(new java.awt.Color(235, 236, 238));
-        jchartScrollPane.setBorder(null);
-        jchartScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        jPanel1.setBackground(new java.awt.Color(235, 236, 238));
-        jPanel1.setToolTipText("");
-        jPanel1.setPreferredSize(new java.awt.Dimension(851, 744));
-
-        graphPanelByYear.setBackground(new java.awt.Color(235, 236, 238));
-        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 744));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 842, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)))
-        );
-
-        jchartScrollPane.setViewportView(jPanel1);
-
-        javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
-        graphPanel.setLayout(graphPanelLayout);
-        graphPanelLayout.setHorizontalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        graphPanelLayout.setVerticalGroup(
-            graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
-        );
-
-        mainPanel.add(graphPanel, "graphPanel");
 
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
 
@@ -510,6 +488,7 @@ public void generalReport()
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
