@@ -44,6 +44,7 @@ public class MainFrame extends javax.swing.JFrame {
         customizeButton = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         dashScrollPane = new javax.swing.JScrollPane(dashPane);
+        jPanel3 = new javax.swing.JPanel();
         dashPane = new javax.swing.JPanel();
         updatePanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -56,6 +57,7 @@ public class MainFrame extends javax.swing.JFrame {
         yearComboBox = new javax.swing.JComboBox();
         yearButton = new javax.swing.JButton();
         jchartScrollPane = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         graphPanelByYear = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,6 +65,7 @@ public class MainFrame extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
+        bgPanel.setBackground(new java.awt.Color(235, 236, 238));
         bgPanel.setPreferredSize(new java.awt.Dimension(1000, 700));
         bgPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -116,19 +119,27 @@ public class MainFrame extends javax.swing.JFrame {
 
         dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         dashScrollPane.setBorder(null);
-        dashScrollPane.setBounds(new java.awt.Rectangle(0, 0, 827, 621));
         dashScrollPane.setPreferredSize(new java.awt.Dimension(827, 620));
+        dashScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         dashPane.setBackground(new java.awt.Color(235, 236, 238));
         dashPane.setPreferredSize(new java.awt.Dimension(800, 300));
-        dashPane.setSize(new java.awt.Dimension(800, 300));
         dashPane.setPreferredSize(new java.awt.Dimension(20, 20));
-        dashScrollPane.setViewportView(dashPane);
 
-        //dashScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dashPane, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dashPane, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
+        );
+
+        dashScrollPane.setViewportView(jPanel3);
 
         mainPanel.add(dashScrollPane, "maincard");
-        //dashScrollPane.getViewport().add(dashPane);
 
         updatePanel.setBackground(new java.awt.Color(235, 236, 238));
 
@@ -228,9 +239,36 @@ public class MainFrame extends javax.swing.JFrame {
 
         jchartScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         jchartScrollPane.setBorder(null);
+        jchartScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jPanel1.setBackground(new java.awt.Color(235, 236, 238));
+        jPanel1.setToolTipText("");
+        jPanel1.setPreferredSize(new java.awt.Dimension(851, 744));
 
         graphPanelByYear.setBackground(new java.awt.Color(235, 236, 238));
-        jchartScrollPane.setViewportView(graphPanelByYear);
+        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 744));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 842, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)))
+        );
+
+        jchartScrollPane.setViewportView(jPanel1);
 
         javax.swing.GroupLayout graphPanelLayout = new javax.swing.GroupLayout(graphPanel);
         graphPanel.setLayout(graphPanelLayout);
@@ -248,7 +286,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(graphPanelLayout.createSequentialGroup()
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE))
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
         );
 
         mainPanel.add(graphPanel, "graphPanel");
@@ -269,7 +307,7 @@ public class MainFrame extends javax.swing.JFrame {
 public void generalReport()
 {
         CardLayout c = (CardLayout)mainPanel.getLayout(); 
-        c.show(mainPanel, "maincard");
+        c.show(mainPanel, "card5");
         ChartPanel p1 = null;
         ChartPanel p2 = null;
         ChartPanel p3 = null;
@@ -282,7 +320,7 @@ public void generalReport()
         }
         addChart(p1,dashPane);
         addChart(p2,dashPane);
-        addChart(p3,dashPane);    
+        addChart(p3,dashPane);  
 }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -351,7 +389,7 @@ public void generalReport()
      * @param chart 
      */
     public void addChart(ChartPanel chart,JPanel panel) {
-        panel.add(chart,BorderLayout.CENTER);
+        panel.add(chart);
         panel.validate();
     }
     
@@ -400,6 +438,8 @@ public void generalReport()
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jchartScrollPane;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
