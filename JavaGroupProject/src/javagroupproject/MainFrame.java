@@ -301,6 +301,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
         CardLayout c = (CardLayout)mainPanel.getLayout(); 
         c.show(mainPanel, "maincard");
+        dashPane.removeAll();
         generalReport();
     }//GEN-LAST:event_dashButtonActionPerformed
 
@@ -311,16 +312,19 @@ public void generalReport()
         ChartPanel p1 = null;
         ChartPanel p2 = null;
         ChartPanel p3 = null;
+        ChartPanel p4 = null;
         try {
             p1 = Handler.getChart("Number of students by gender","categoryy", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
             p2 = Handler.getChart("Number of studets by gender","pie", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
             p3 = Handler.getChart("Average GPA by year","line", "SELECT Year,AVG(GPA) as 'GPA' FROM studentinfor.student group by Year;");
+            p4 = Handler.getChart("Number of studets by education field","pie", "SELECT educationfield,count(1) FROM studentinfor.student group by educationfield;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         addChart(p1,dashPane);
         addChart(p2,dashPane);
         addChart(p3,dashPane);  
+        addChart(p4,dashPane); 
 }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

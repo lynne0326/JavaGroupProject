@@ -15,6 +15,7 @@ import org.jfree.chart.plot.*;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.CategoryDataset;
@@ -80,7 +81,7 @@ public class JChart {
                     break;
                 case "categoryy":
                     chart = ChartFactory.createBarChart(
-                            chartTitle, "Gender", "Number", 
+                            chartTitle, "Post/Under", "Number", 
                             (CategoryDataset)dataSet,
                             PlotOrientation.HORIZONTAL,
                             true,
@@ -105,7 +106,10 @@ public class JChart {
                     plot4.setBackgroundAlpha(0.5f);
                     plot4.setDomainGridlinePaint(Color.white); 
                     plot4.setRangeGridlinePaint(Color.white);
-                    plot4.setDrawingSupplier(getSupplier()); 
+                    plot4.setDrawingSupplier(getSupplier());
+                    ValueAxis valueaxis = plot4.getRangeAxis();
+                    valueaxis.setRange(3.2D, 3.5D);
+                    valueaxis.setAutoRange(false);
                     //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
             }
