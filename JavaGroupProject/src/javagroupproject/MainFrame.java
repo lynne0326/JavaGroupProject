@@ -60,14 +60,17 @@ public class MainFrame extends javax.swing.JFrame {
         jchartScrollPane = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         graphPanelByYear = new javax.swing.JPanel();
-        dashScrollPane = new javax.swing.JScrollPane(dashPane);
-        jPanel3 = new javax.swing.JPanel();
-        dashPane = new javax.swing.JPanel();
         updatePanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         pathLabel = new javax.swing.JLabel();
+        dashScrollPane = new javax.swing.JScrollPane(dashPane);
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        dashPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -213,33 +216,33 @@ public class MainFrame extends javax.swing.JFrame {
 
         jchartScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         jchartScrollPane.setBorder(null);
-        jchartScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        //jchartScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanel1.setBackground(new java.awt.Color(235, 236, 238));
         jPanel1.setToolTipText("");
-        jPanel1.setPreferredSize(new java.awt.Dimension(851, 744));
+        jPanel1.setPreferredSize(new java.awt.Dimension(851, 944));
 
         graphPanelByYear.setBackground(new java.awt.Color(235, 236, 238));
-        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 744));
+        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 944));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 851, Short.MAX_VALUE)
+            .addGap(0, 1209, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 1197, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 944, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)))
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE)))
         );
 
         jchartScrollPane.setViewportView(jPanel1);
@@ -252,7 +255,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
                 .addContainerGap())
         );
         graphPanelLayout.setVerticalGroup(
@@ -260,34 +263,10 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(graphPanelLayout.createSequentialGroup()
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE))
         );
 
         mainPanel.add(graphPanel, "graphPanel");
-
-        dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
-        dashScrollPane.setBorder(null);
-        dashScrollPane.setPreferredSize(new java.awt.Dimension(827, 620));
-        dashScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-        dashPane.setBackground(new java.awt.Color(235, 236, 238));
-        dashPane.setPreferredSize(new java.awt.Dimension(800, 300));
-        dashPane.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashPane, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashPane, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
-        );
-
-        dashScrollPane.setViewportView(jPanel3);
-
-        mainPanel.add(dashScrollPane, "maincard");
 
         updatePanel.setBackground(new java.awt.Color(235, 236, 238));
 
@@ -322,7 +301,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pathLabel)
-                .addContainerGap(516, Short.MAX_VALUE))
+                .addContainerGap(919, Short.MAX_VALUE))
         );
         updatePanelLayout.setVerticalGroup(
             updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,10 +313,85 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(pathLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(520, Short.MAX_VALUE))
         );
 
         mainPanel.add(updatePanel, "update");
+
+        dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
+        dashScrollPane.setBorder(null);
+        dashScrollPane.setPreferredSize(new java.awt.Dimension(851, 620));
+        dashScrollPane.setSize(new java.awt.Dimension(851, 620));
+        dashScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jPanel3.setPreferredSize(new java.awt.Dimension(851, 848));
+        jPanel3.setSize(new java.awt.Dimension(851, 848));
+
+        jPanel2.setBackground(new java.awt.Color(235, 236, 238));
+        jPanel2.setPreferredSize(new java.awt.Dimension(851, 115));
+
+        jLabel10.setFont(new java.awt.Font("Shree Devanagari 714", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 191, 218));
+        jLabel10.setText("Total Records");
+
+        jLabel11.setFont(new java.awt.Font("Shree Devanagari 714", 0, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setText(String.valueOf(Handler.getTotalRecord()));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(360, 360, 360)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(237, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        dashPane.setBackground(new java.awt.Color(235, 236, 238));
+        dashPane.setMinimumSize(new java.awt.Dimension(851, 848));
+        dashPane.setPreferredSize(new java.awt.Dimension(851, 848));
+        dashPane.setSize(new java.awt.Dimension(851, 848));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dashPane, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 140, Short.MAX_VALUE)
+                .addComponent(dashPane, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 706, Short.MAX_VALUE)))
+        );
+
+        dashScrollPane.setViewportView(jPanel3);
+
+        mainPanel.add(dashScrollPane, "maincard");
 
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
 
@@ -500,6 +554,8 @@ public void generalReport()
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -510,6 +566,7 @@ public void generalReport()
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jchartScrollPane;
     private javax.swing.JPanel leftPanel;

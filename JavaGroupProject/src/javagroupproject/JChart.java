@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javagroupproject;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -113,7 +108,10 @@ public class JChart {
         Paint[] color = new Paint[]{
                      new Color(59,189,211),
                      new Color(178,184,194),
+                     new Color(135,206,250),
+                     new Color(0,191,255),
                      ChartColor.LIGHT_BLUE,
+                     ChartColor.DARK_GREEN,
                      Color.lightGray,
                      Color.green,
                      Color.red,

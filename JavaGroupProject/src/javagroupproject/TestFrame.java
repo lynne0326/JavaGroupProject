@@ -44,21 +44,20 @@ public class TestFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 5, -1, -1));
-
-        jPanel1.setLayout(new java.awt.BorderLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 89, 620, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        try {
-////            ChartPanel p = Handler.getChart("histogram", "histogram", "select ArrivalyearinUSA, count(1) from studentinfor.student group by ArrivalyearinUSA;");
-////            jPanel1.add(p,BorderLayout.CENTER);
-////            jPanel1.validate();
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(TestFrame.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
+        try {
+            ChartPanel p3 = Handler.getChart("Average GPA by year","line", "SELECT Year,AVG(GPA) as 'GPA' FROM studentinfor.student group by Year;");
+            jPanel1.add(p3);
+            jPanel1.validate();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(TestFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

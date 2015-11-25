@@ -57,4 +57,8 @@ public class Handler {
             
     }
     
+    public static int getTotalRecord() {
+        return Dbconnection.connectDatabase(1);
+    }
+    
 }

@@ -1,6 +1,7 @@
 package javagroupproject;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -79,6 +80,29 @@ public class Dbconnection {
         JOptionPane.showMessageDialog(null,"Update data successfully!"," ",
                 PLAIN_MESSAGE);
         }
+    
+    /**
+     * This method is to append data to database 
+     * @return 
+     */
+    public static int connectDatabase(int total){
+        ResultSet rs = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (java.sql.Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            Statement state = conn.createStatement()) {
+            rs = state.executeQuery("SELECT count(*) FROM studentinfor.`student2.0`;");
+            rs.next();
+            total = rs.getInt(1);
+            } catch (SQLException ex) {
+            Logger.getLogger(Dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+             
+        }    
     
     
 }
