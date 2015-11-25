@@ -29,7 +29,7 @@ public class DbImplement {
     public static ChartPanel genderByYear(String year) {
         ChartPanel p = null;
         try {
-            p = Handler.getChart("Number of students by gender","pie", "SELECT gender,count(1) FROM studentinfor.student where year = "+year+" group by gender;");
+            p = Handler.getChart("Number of students by gender","pie", "SELECT Gender,count(1) FROM studentinfor.student2 where year = "+year+" group by Gender;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DbImplement.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,7 +38,7 @@ public class DbImplement {
     
     public static ChartPanel courseByYear(String year) {
         try {
-            return Handler.getChart("Number of students by course","categoryx", "SELECT Course,count(1) as 'Number of course' FROM studentinfor.student where "+ year +" group by course;");
+            return Handler.getChart("Number of students by course","categoryx", "SELECT Course,count(1) as 'Number of course' FROM studentinfor.student2 where "+ year +" group by Course;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DbImplement.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -48,7 +48,7 @@ public class DbImplement {
     public static ChartPanel citizenshipByYear(String year){
         ChartPanel p = null;
         try{
-            p = Handler.getChart("Number of students by citizenship","categoryy", "SELECT Citizenship,count(1) as 'Number of Student' FROM studentinfor.student where Year = "+year+" group by Citizenship;");
+            p = Handler.getChart("Number of students by citizenship","categoryy", "SELECT Citizenship,count(1) as 'Number of Student' FROM studentinfor.student2 where Year = "+year+" group by Citizenship;");
         }catch(ClassNotFoundException | SQLException ex){
          Logger.getLogger(DbImplement.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,7 +61,7 @@ public static ChartPanel GMATByYear(String year){
                 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://mydatabase.cwhndt08kykb.us-west-2.rds.amazonaws.com:3306/studentinfor", 
                     "lynne", "abcd1234");
                     Statement stmt = conn.createStatement(); 
-                    ResultSet rs1 = stmt.executeQuery("SELECT gmatC FROM studentinfor.student where Year = "+year+" AND Basisforadmission = 'GMAT';");
+                    ResultSet rs1 = stmt.executeQuery("SELECT gmatC FROM studentinfor.student2 where Year = "+year+" AND Basisforadmission = 'GMAT';");
                     List list1 = new ArrayList();
                     while(rs1.next())
                     {
@@ -81,7 +81,7 @@ public static ChartPanel GREByYear(String year){
                 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://mydatabase.cwhndt08kykb.us-west-2.rds.amazonaws.com:3306/studentinfor", 
                     "lynne", "abcd1234");
                     Statement stmt = conn.createStatement(); 
-                    ResultSet rs1 = stmt.executeQuery("SELECT greC FROM studentinfor.student where Year = "+year+" AND Basisforadmission = 'GRE';");
+                    ResultSet rs1 = stmt.executeQuery("SELECT greC FROM studentinfor.student2 where Year = "+year+" AND Basisforadmission = 'GRE';");
                     List list1 = new ArrayList();
                     while(rs1.next())
                     {
@@ -101,7 +101,7 @@ public static ChartPanel SATByYear(String year){
                 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://mydatabase.cwhndt08kykb.us-west-2.rds.amazonaws.com:3306/studentinfor", 
                     "lynne", "abcd1234");
                     Statement stmt = conn.createStatement(); 
-                    ResultSet rs1 = stmt.executeQuery("SELECT satC FROM studentinfor.student where Year = "+year+" AND Basisforadmission = 'SAT';");
+                    ResultSet rs1 = stmt.executeQuery("SELECT satC FROM studentinfor.student2 where Year = "+year+" AND Basisforadmission = 'SAT';");
                     List list1 = new ArrayList();
                     while(rs1.next())
                     {
