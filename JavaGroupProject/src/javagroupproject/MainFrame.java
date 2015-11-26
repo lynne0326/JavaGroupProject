@@ -1,9 +1,6 @@
 package javagroupproject;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -637,7 +634,7 @@ public void generalReport()
             if(methodComboBox.getSelectedIndex()==1) {
                 c.show(dmContentPane, "card3");
             } 
-            //
+            
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void otherReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherReportButtonActionPerformed
