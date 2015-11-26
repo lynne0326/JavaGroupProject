@@ -447,7 +447,7 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[851, 944]"/>
+                          <Dimension value="[851, 1244]"/>
                         </Property>
                       </Properties>
 
@@ -483,7 +483,7 @@
                               <Color blue="ee" green="ec" red="eb" type="rgb"/>
                             </Property>
                             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                              <Dimension value="[851, 944]"/>
+                              <Dimension value="[851, 1244]"/>
                             </Property>
                           </Properties>
 

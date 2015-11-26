@@ -228,10 +228,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(235, 236, 238));
         jPanel1.setToolTipText("");
-        jPanel1.setPreferredSize(new java.awt.Dimension(851, 944));
+        jPanel1.setPreferredSize(new java.awt.Dimension(851, 1244));
 
         graphPanelByYear.setBackground(new java.awt.Color(235, 236, 238));
-        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 944));
+        graphPanelByYear.setPreferredSize(new java.awt.Dimension(851, 1244));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -424,10 +424,10 @@ public void generalReport()
         ChartPanel p3 = null;
         ChartPanel p4 = null;
         try {
-            p1 = Handler.getChart("Number of students by gender","categoryy", "SELECT Gender,count(1) FROM studentinfor.student2 group by Gender;");
-            p2 = Handler.getChart("Number of studets by gender","pie", "SELECT Gender,count(1) FROM studentinfor.student2 group by Gender;");
+            p1 = Handler.getChart("Number of students by gender","categoryy", "SELECT Gender,count(1) as 'Number of Student' FROM studentinfor.student2 group by Gender;");
+            p2 = Handler.getChart("Number of students by gender","pie", "SELECT Gender,count(1) FROM studentinfor.student2 group by Gender;");
             p3 = Handler.getChart("Average GPA by year","line", "SELECT Year,AVG(GPA) as 'GPA' FROM studentinfor.student2 group by Year;");
-            p4 = Handler.getChart("Number of studets by education field","pie", "SELECT educationfield,count(1) FROM studentinfor.student2 group by educationfield;");
+            p4 = Handler.getChart("Number of students by education field","pie", "SELECT educationfield,count(1) FROM studentinfor.student2 group by educationfield;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -475,37 +475,41 @@ public void generalReport()
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2011"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2011"),graphPanelByYear);
-                addChart(DbImplement.courseByYear("2011"), graphPanelByYear);
                 addChart(DbImplement.GREByYear("2011"), graphPanelByYear);
                 addChart(DbImplement.GMATByYear("2011"), graphPanelByYear);
                 addChart(DbImplement.SATByYear("2011"), graphPanelByYear);
+                addChart(DbImplement.SalaryByYear("2011"), graphPanelByYear);
+                addChart(DbImplement.courseByYear("2011"), graphPanelByYear);
                 break;
             case 2:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2012"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2012"),graphPanelByYear);
-                addChart(DbImplement.courseByYear("2012"), graphPanelByYear);
                 addChart(DbImplement.GREByYear("2012"), graphPanelByYear);
                 addChart(DbImplement.GMATByYear("2012"), graphPanelByYear);
                 addChart(DbImplement.SATByYear("2012"), graphPanelByYear);
+                addChart(DbImplement.SalaryByYear("2012"), graphPanelByYear);
+                addChart(DbImplement.courseByYear("2012"), graphPanelByYear);
                 break;
             case 3:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2013"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2013"),graphPanelByYear);
-                addChart(DbImplement.courseByYear("2013"), graphPanelByYear);
                 addChart(DbImplement.GREByYear("2013"), graphPanelByYear);
                 addChart(DbImplement.GMATByYear("2013"), graphPanelByYear);
                 addChart(DbImplement.SATByYear("2013"), graphPanelByYear);
+                addChart(DbImplement.SalaryByYear("2013"), graphPanelByYear);
+                addChart(DbImplement.courseByYear("2013"), graphPanelByYear);
                 break;
             case 4:
                 graphPanelByYear.removeAll();
                 addChart(DbImplement.genderByYear("2014"),graphPanelByYear);
                 addChart(DbImplement.citizenshipByYear("2014"),graphPanelByYear);
-                addChart(DbImplement.courseByYear("2014"), graphPanelByYear);
                 addChart(DbImplement.GREByYear("2014"), graphPanelByYear);
                 addChart(DbImplement.GMATByYear("2014"), graphPanelByYear);
                 addChart(DbImplement.SATByYear("2014"), graphPanelByYear);
+                addChart(DbImplement.SalaryByYear("2014"), graphPanelByYear);
+                addChart(DbImplement.courseByYear("2014"), graphPanelByYear);
                 break;
         }
     }//GEN-LAST:event_yearButtonActionPerformed

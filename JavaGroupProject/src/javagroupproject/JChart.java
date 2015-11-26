@@ -47,7 +47,7 @@ public class JChart {
                     break;
                 case "categoryx":
                     chart = ChartFactory.createBarChart(
-                            chartTitle, " ", " ", 
+                            chartTitle, null, null, 
                             (CategoryDataset)dataSet,
                             PlotOrientation.HORIZONTAL,
                             true,
@@ -62,7 +62,7 @@ public class JChart {
                     break;
                 case "categoryy":
                     chart = ChartFactory.createBarChart(
-                            chartTitle, "Post/Under", "Number", 
+                            chartTitle,null,null,
                             (CategoryDataset)dataSet,
                             PlotOrientation.HORIZONTAL,
                             true,
@@ -98,7 +98,10 @@ public class JChart {
             chart.setBackgroundPaint(null);
             
             panel = new ChartPanel(chart);   
-            panel.setPreferredSize(new Dimension(400, 300));
+            if(chartType.equals("categoryx") )
+            panel.setPreferredSize(new Dimension(700, 300));
+            else
+            panel.setPreferredSize(new Dimension(400, 300));    
             panel.setOpaque(false);
             return panel;
                     
