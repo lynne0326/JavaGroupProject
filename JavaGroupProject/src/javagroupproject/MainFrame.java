@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import net.proteanit.sql.DbUtils;
 import org.jfree.chart.ChartPanel;
 
 /**
@@ -674,14 +673,12 @@ public void generalReport()
         try {
             jPanel5.removeAll();
             addChart(DbImplement.naiveBayes(), jPanel5);
-            WekaData.weka1();
+            WekaData.classify();
             String table = WekaData.getResult();
             System.out.printf(table);
             
             } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
             }
             if(methodComboBox.getSelectedIndex()==1) {

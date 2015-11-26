@@ -7,40 +7,74 @@ package javagroupproject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author lingyanjiang
  */
 public class texttest {
-    public static String s = "=== Detailed Accuracy By Class ===\n" +
-"\n" +
-"               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\n" +
-"                 0.98      0.972      0.323     0.98      0.486      0.515    Medium\n" +
-"                 0.015     0.006      0.368     0.015     0.029      0.511    Low\n" +
-"                 0.031     0.003      0.792     0.031     0.059      0.533    NoPay\n" +
-"                 0.006     0          0.75      0.006     0.012      0.505    Excellent\n" +
-"                 0.019     0.005      0.378     0.019     0.036      0.511    High\n" +
-"Weighted Avg.    0.328     0.315      0.497     0.328     0.182      0.517";
-    
+
+    public static String s = "kMeans\n"
+            + "======\n"
+            + "\n"
+            + "Number of iterations: 6\n"
+            + "Within cluster sum of squared errors: 89.3668521146179\n"
+            + "Missing values globally replaced with mean/mode\n"
+            + "\n"
+            + "Cluster centroids:\n"
+            + "                         Cluster#\n"
+            + "Attribute    Full Data          0          1\n"
+            + "                (5006)     (3348)     (1658)\n"
+            + "============================================\n"
+            + "salary      40318.3632 58149.7266  4311.4845\n"
+            + "\n"
+            + "";
+
     public static void main(String[] args) {
-//        System.out.println(s.indexOf("t"));
-//        System.out.println(s.substring(s.indexOf("0")));
+//        System.out.println(s.indexOf("Full Data"));
+//        System.out.println(s.substring(s.indexOf("("), s.lastIndexOf(")")+1));
         
         ArrayList<Double> data = new ArrayList<>();
-
-        s = s.substring(s.indexOf("0"));
-        String [] temp = s.split(" ");
-        for(int i=0;i<temp.length;i++){
-            if(temp[i].startsWith("0")||temp[i].startsWith("1")) {
-                data.add(Double.parseDouble(temp[i]));
-            }  
+        
+        String a = s.substring(s.indexOf("("), s.lastIndexOf(")"));
+        Pattern p = Pattern.compile("\\d+");
+        Matcher m = p.matcher(a);
+        while (m.find()) {
+            data.add(Double.parseDouble(m.group(0)));
         }
         
-        for(double a:data)
-            System.out.println(a);
+        System.out.println(s.substring(s.indexOf("===============")));
+        String b =s.substring(s.indexOf("==============="));
+        String [] temp = b.split(" ");
+        int count=0;
+        for(int i=0;i<temp.length;i++){
+            if(temp[i].contains(".")){
+                data.add(Double.parseDouble(temp[i]));
+            }
+        }
         
-        
+        for(Double d:data)
+            System.out.println(d);
+
+
+//        s = s.substring(s.indexOf("Full Data"));
+//        String [] temp = s.split("\\(");
+//        for(String s:temp)
+//            System.out.println(s);
+//        ArrayList<Double> data = new ArrayList<>();
+//
+//        s = s.substring(s.indexOf("0"));
+//        String [] temp = s.split(" ");
+//        for(int i=0;i<temp.length;i++){
+//            if(temp[i].startsWith("0")||temp[i].startsWith("1")) {
+//                data.add(Double.parseDouble(temp[i]));
+//            }  
+//        }
+//        
+//        for(double a:data)
+//            System.out.println(a);
     }
-    
+
 }

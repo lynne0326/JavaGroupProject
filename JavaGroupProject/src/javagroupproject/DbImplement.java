@@ -176,42 +176,36 @@ public static ChartPanel naiveBayes() throws IOException
         ChartPanel panel = null;
         JFreeChart chart = null;
 
-            try {
-                ArrayList<Double> data = WekaData.weka1();            
-                DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-            String[] category = {"Medium","Low","NoPay","Excellent","High"};
-            String[] value = {"TP Rate","FP Rate","Precision","Recall","F-Measure","ROC Area"};
-            int k =0;
-            for(int i = 0; i < 5;i++)
-                for(int j = 0; j < 6; j++)
-                {
-                    double v = data.get(k);
-                    k++;
-                    dataset.addValue(v,category[i] ,value[j]); 
-                } 
-    
-                        chart = ChartFactory.createBarChart(
-                            "NaiveBayes on Slary",null,null,
-                            (CategoryDataset)dataset,
-                            PlotOrientation.VERTICAL,
-                            true,
-                            true,
-                            false);
-                    CategoryPlot plot = (CategoryPlot) chart.getPlot();
-                    plot.setBackgroundAlpha(0.5f);
-                    plot.setDrawingSupplier(getSupplier());
-                    BarRenderer customBarRenderer2 = (BarRenderer) plot.getRenderer();
-                    customBarRenderer2.setBarPainter( new StandardBarPainter() );
-                    customBarRenderer2.setItemMargin(-0.01);
-                    chart.setBorderVisible(false);
-                    chart.setBackgroundPaint(null);
-                    panel = new ChartPanel(chart);
-                    panel.setPreferredSize(new Dimension(700, 300));
-                    
-            } catch (SQLException ex) {
-                Logger.getLogger(JChart.class.getName()).log(Level.SEVERE, null, ex);
+        ArrayList<Double> data = WekaData.classify();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        String[] category = {"Medium","Low","NoPay","Excellent","High"};
+        String[] value = {"TP Rate","FP Rate","Precision","Recall","F-Measure","ROC Area"};
+        int k =0;
+        for(int i = 0; i < 5;i++)
+            for(int j = 0; j < 6; j++)
+            {
+                double v = data.get(k);
+                k++;
+                dataset.addValue(v,category[i] ,value[j]);
             }
-            return panel;
+        chart = ChartFactory.createBarChart(
+                "NaiveBayes on Slary",null,null,
+                (CategoryDataset)dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false);
+        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+        plot.setBackgroundAlpha(0.5f);
+        plot.setDrawingSupplier(getSupplier());
+        BarRenderer customBarRenderer2 = (BarRenderer) plot.getRenderer();
+        customBarRenderer2.setBarPainter( new StandardBarPainter() );
+        customBarRenderer2.setItemMargin(-0.01);
+        chart.setBorderVisible(false);
+        chart.setBackgroundPaint(null);
+        panel = new ChartPanel(chart);
+        panel.setPreferredSize(new Dimension(700, 300));
+        return panel;
 }   
   
 }

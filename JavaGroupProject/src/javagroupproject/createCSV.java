@@ -24,10 +24,13 @@ import java.util.logging.Logger;
 public class createCSV {
         public static void createCSVFile() throws IOException, SQLException {
             File file = new File("temp10.csv");
-            if (!file.exists()) {
+            File file2 = new File("temp11.csv");
+            if (!file.exists() && !file2.exists()) {
             FileWriter fw = new FileWriter("temp10.csv");
+            FileWriter fw2 = new FileWriter("temp11.csv");
             
             fw.write("salary, info\n");
+            fw2.write("salary, GPA\n");
             
             Connection conn = Dbconnection.getConnection();
             ResultSet rs = null;
@@ -35,20 +38,9 @@ public class createCSV {
             Statement stat = null;
             stat = conn.createStatement();
             rs = stat.executeQuery("select * from studentinfor.student2");
-            while(rs.next()) {
-                /**
-                StringBuilder sb = null;
-                for (int i=1; i < 10; i++) {
-                    sb.append(rs.getString(i));
-                    sb.append(" ");
-                    System.out.println(sb);
-                }
-                for (int i=12; i < 25; i++) {
-                    sb.append(rs.getString(i));
-                    sb.append(" ");
-                }
-                */
-                fw.write(rs.getString(25) + "," 
+            while(rs.next()) {              
+                String GPA = rs.getString("GPA");
+                fw.write(rs.getString("salaryDegree") + "," 
                         + rs.getString("educationfield") + " " 
                         + rs.getString("Course") + " " 
                         + rs.getString("PostOrUnder") + " " 
@@ -66,14 +58,14 @@ public class createCSV {
                         + rs.getString("Equitydata") + " " */
                         + rs.getString("Coursecompletionyear") + " "
                         + rs.getString("Highesteducationalattainment") + " " 
-                        + rs.getString("GPA") + " " 
+                        + GPA + " " 
                         + rs.getString("Modeofattendance") + " " 
                         + rs.getString("GraduateGrade") + " " 
                         + "\n");
-                //sb = null;
+                fw2.write(rs.getString("salary")  + "," + GPA + "\n");
             }
             fw.close();
-            System.out.println("create successful");
+            fw2.close();
         } 
         }
         
