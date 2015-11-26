@@ -151,6 +151,7 @@ public static ChartPanel SalaryByYear(String year){
             renderer.setMaximumBarWidth(0.1);
             CategoryAxis domainAxis = plot.getDomainAxis();
             chart.setBorderVisible(false);
+            chart.setBackgroundPaint(null);
             plot.getRenderer().setSeriesPaint(0, new Color(59,189,211));
             p = new ChartPanel(chart);   
             p.setPreferredSize(new Dimension(400, 300));
