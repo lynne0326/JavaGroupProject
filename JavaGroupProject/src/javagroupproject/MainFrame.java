@@ -79,10 +79,10 @@ public class MainFrame extends javax.swing.JFrame {
         nbaPanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
         clusterPane = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1030, 700));
@@ -277,7 +277,7 @@ public class MainFrame extends javax.swing.JFrame {
             graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(graphPanelLayout.createSequentialGroup()
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
             .addGroup(graphPanelLayout.createSequentialGroup()
                 .addComponent(jchartScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -325,7 +325,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pathLabel)
-                .addContainerGap(539, Short.MAX_VALUE))
+                .addContainerGap(540, Short.MAX_VALUE))
         );
         updatePanelLayout.setVerticalGroup(
             updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,11 +474,13 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1225, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 78, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 1147, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 138, Short.MAX_VALUE)
+            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout nbaPanelLayout = new javax.swing.GroupLayout(nbaPanel);
@@ -514,25 +516,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(235, 236, 238));
         jPanel7.setPreferredSize(new java.awt.Dimension(850, 100));
-
-        jLabel15.setBackground(new java.awt.Color(235, 236, 238));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout clusterPaneLayout = new javax.swing.GroupLayout(clusterPane);
         clusterPane.setLayout(clusterPaneLayout);
@@ -691,6 +675,13 @@ public void generalReport()
         CardLayout c = (CardLayout) dmContentPane.getLayout();
             if(methodComboBox.getSelectedIndex()==0) {
                 c.show(dmContentPane, "card2");
+                jLabel16.setText("<html>TP Rate: rate of true positives (instances correctly classified as a given class)<br/>"
+                        + "FP Rate: rate of false positives (instances falsely classified as a given class)<br/>"
+                        + "Precision: proportion of instances that are truly of a class divided by the total instances classified as that class<br/>"
+                        + "Recall: proportion of instances classified as a given class divided by the actual total in that class (equivalent to TP rate)<br/>"
+                        + "F-Measure: A combined measure for precision and recall calculated as 2 * Precision * Recall / (Precision + Recall)<br/>"
+                        + "ROC area measuremen: this is one of the most important values output by Weka. An \"optimal\" classifier will have<br/> "
+                        + "ROC area values approaching 1, with 0.5 being comparable to \"random guessing\" (similar to a Kappa statistic of 0).</html>");
         try {
             jPanel8.removeAll();
             addChart(DbImplement.naiveBayes(), jPanel8);
@@ -704,7 +695,9 @@ public void generalReport()
             }
             if(methodComboBox.getSelectedIndex()==1) {
                 c.show(dmContentPane, "card3");
-                addChart(DbImplement.clusterBubble("salary"), clusterPane);
+                addChart(DbImplement.clusterBubble("salary"), jPanel6);
+           
+                
             } 
             
             
@@ -776,7 +769,7 @@ public void generalReport()
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

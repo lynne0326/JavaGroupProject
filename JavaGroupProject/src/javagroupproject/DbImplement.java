@@ -22,7 +22,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberTickUnit;
+import org.jfree.chart.axis.SymbolAxis;
 import org.jfree.chart.axis.TickUnits;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.BoxAndWhiskerToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DefaultDrawingSupplier;
@@ -222,37 +224,50 @@ public static ChartPanel clusterBubble(String s){
         
         ArrayList<Double> dataList = WekaData.cluster(s);
        
-        double[] xVal = {1,2};
+        double[] xVal = {0,1};
         
         double[] yVal = {dataList.get(4), dataList.get(5)};
-        double[] zVal = {dataList.get(1)/10000, dataList.get(2)/10000};
+        double[] zVal = {dataList.get(1)/16000, dataList.get(2)/16000};
         double[][] bubbleVal = {yVal, xVal, zVal};
         
         dataset.addSeries("Number of Students", bubbleVal);
         
         chart = ChartFactory.createBubbleChart(
-                "Cluster Analysis for "+ s, s, "Cluster Type", dataset, PlotOrientation.HORIZONTAL, true, true, true);
+                "Cluster Analysis for Salary", " Salary ", "Cluster Type", dataset, PlotOrientation.HORIZONTAL, true, true, true);
         XYPlot xyplot = ( XYPlot )chart.getPlot( );
         xyplot.setBackgroundAlpha(0.5f);
         xyplot.setDrawingSupplier(getSupplier());
         XYItemRenderer xyitemrenderer = xyplot.getRenderer( );
         xyitemrenderer.setSeriesPaint( 0 , Color.blue );
+        
+        //y
         NumberAxis numberaxis = ( NumberAxis )xyplot.getDomainAxis( );
         numberaxis.setLowerMargin( 0.2 );
         numberaxis.setUpperMargin( 0.5 );
-        NumberAxis numberaxis1 = ( NumberAxis )xyplot.getRangeAxis( );
+        
+
+        
+        // x
+        ValueAxis numberaxis1 = new SymbolAxis(" ", new String[]{"Type 1", "Type 2"});
+        
+        
+        //NumberAxis numberaxis1 = ( NumberAxis )xyplot.getRangeAxis( );
         numberaxis1.setLowerMargin( 0.8 );
         numberaxis1.setUpperMargin( 0.9 );
-        
+        xyplot.setRangeAxis(numberaxis1);
+        /*
         TickUnits stdUnits = new TickUnits();
         DecimalFormat formatter = new DecimalFormat("##,###");
-        stdUnits.add(new NumberTickUnit(1,formatter));
-        stdUnits.add(new NumberTickUnit(2,formatter));
+        stdUnits.add(new NumberTickUnit(10,formatter));
+        stdUnits.add(new NumberTickUnit(20,formatter));
         numberaxis1.setStandardTickUnits(stdUnits);
+        **/
+ 
+        
         chart.setBorderVisible(false);
         chart.setBackgroundPaint(null);          
         panel = new ChartPanel(chart);
-        panel.setPreferredSize(new Dimension(750, 400));
+        panel.setPreferredSize(new Dimension(700, 400));
         
     
     return panel;
