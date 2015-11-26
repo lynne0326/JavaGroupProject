@@ -24,12 +24,15 @@ import org.jfree.chart.labels.BoxAndWhiskerToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DefaultDrawingSupplier;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
+import org.jfree.data.xy.DefaultXYZDataset;
 
 /**
  *
@@ -207,5 +210,43 @@ public static ChartPanel naiveBayes() throws IOException
         panel.setPreferredSize(new Dimension(700, 300));
         return panel;
 }   
+
+public static ChartPanel clusterBubble(){
+        ChartPanel panel = null;
+        JFreeChart chart = null;
+        
+        DefaultXYZDataset dataset = new DefaultXYZDataset();
+        
+        ArrayList<Double> dataList = WekaData.cluster("GPA");
+       
+        double[] xVal = {10,20};
+        
+        double[] yVal = {dataList.get(4), dataList.get(5)};
+        double[] zVal = {dataList.get(1)/10000, dataList.get(2)/10000};
+        double[][] bubbleVal = {yVal, xVal, zVal};
+        
+        dataset.addSeries("Number of Students", bubbleVal);
+        
+        chart = ChartFactory.createBubbleChart(
+                "Cluster Analysis for GPA", " Salary ", "Cluster Type", dataset, PlotOrientation.HORIZONTAL, true, true, true);
+        XYPlot xyplot = ( XYPlot )chart.getPlot( );
+        xyplot.setBackgroundAlpha(0.5f);
+        xyplot.setDrawingSupplier(getSupplier());
+        XYItemRenderer xyitemrenderer = xyplot.getRenderer( );
+        xyitemrenderer.setSeriesPaint( 0 , Color.blue );
+        NumberAxis numberaxis = ( NumberAxis )xyplot.getDomainAxis( );
+        numberaxis.setLowerMargin( 0.2 );
+        numberaxis.setUpperMargin( 0.5 );
+        NumberAxis numberaxis1 = ( NumberAxis )xyplot.getRangeAxis( );
+        numberaxis1.setLowerMargin( 0.8 );
+        numberaxis1.setUpperMargin( 0.9 );
+        chart.setBorderVisible(false);
+        chart.setBackgroundPaint(null);          
+        panel = new ChartPanel(chart);
+        panel.setPreferredSize(new Dimension(700, 300));
+        
+    
+    return panel;
+    }
   
 }

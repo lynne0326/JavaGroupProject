@@ -496,18 +496,6 @@ public class MainFrame extends javax.swing.JFrame {
         dmContentPane.add(nbaPanel, "card2");
 
         clusterPane.setBackground(new java.awt.Color(235, 236, 238));
-
-        javax.swing.GroupLayout clusterPaneLayout = new javax.swing.GroupLayout(clusterPane);
-        clusterPane.setLayout(clusterPaneLayout);
-        clusterPaneLayout.setHorizontalGroup(
-            clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
-        );
-        clusterPaneLayout.setVerticalGroup(
-            clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
-        );
-
         dmContentPane.add(clusterPane, "card3");
 
         javax.swing.GroupLayout dmPaneLayout = new javax.swing.GroupLayout(dmPane);
@@ -658,7 +646,9 @@ public void generalReport()
             }
             if(methodComboBox.getSelectedIndex()==1) {
                 c.show(dmContentPane, "card3");
+                addChart(DbImplement.clusterBubble(), clusterPane);
             } 
+            
             
     }//GEN-LAST:event_jButton3ActionPerformed
 
