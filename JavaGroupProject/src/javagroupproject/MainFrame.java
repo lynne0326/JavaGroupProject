@@ -423,10 +423,10 @@ public void generalReport()
         ChartPanel p3 = null;
         ChartPanel p4 = null;
         try {
-            p1 = Handler.getChart("Number of students by gender","categoryy", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
-            p2 = Handler.getChart("Number of studets by gender","pie", "SELECT gender,count(1) FROM studentinfor.student group by gender;");
-            p3 = Handler.getChart("Average GPA by year","line", "SELECT Year,AVG(GPA) as 'GPA' FROM studentinfor.student group by Year;");
-            p4 = Handler.getChart("Number of studets by education field","pie", "SELECT educationfield,count(1) FROM studentinfor.student group by educationfield;");
+            p1 = Handler.getChart("Number of students by gender","categoryy", "SELECT Gender,count(1) FROM studentinfor.student2 group by Gender;");
+            p2 = Handler.getChart("Number of studets by gender","pie", "SELECT Gender,count(1) FROM studentinfor.student2 group by Gender;");
+            p3 = Handler.getChart("Average GPA by year","line", "SELECT Year,AVG(GPA) as 'GPA' FROM studentinfor.student2 group by Year;");
+            p4 = Handler.getChart("Number of studets by education field","pie", "SELECT educationfield,count(1) FROM studentinfor.student2 group by educationfield;");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

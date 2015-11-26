@@ -95,6 +95,7 @@ public class Dbconnection {
         try (java.sql.Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement state = conn.createStatement()) {
             rs = state.executeQuery("SELECT count(*) FROM studentinfor.student2;");
+            rs = state.executeQuery("SELECT count(*) FROM studentinfor.`student2`;");
             rs.next();
             total = rs.getInt(1);
             } catch (SQLException ex) {

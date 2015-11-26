@@ -49,7 +49,7 @@ public class JChart {
                     chart = ChartFactory.createBarChart(
                             chartTitle, " ", " ", 
                             (CategoryDataset)dataSet,
-                            PlotOrientation.VERTICAL,
+                            PlotOrientation.HORIZONTAL,
                             true,
                             true,
                             false);
@@ -89,7 +89,7 @@ public class JChart {
                     plot4.setRangeGridlinePaint(Color.white);
                     plot4.setDrawingSupplier(getSupplier());
                     ValueAxis valueaxis = plot4.getRangeAxis();
-                    valueaxis.setRange(3.2D, 3.5D);
+                    valueaxis.setRange(3.3D, 3.5D);
                     valueaxis.setAutoRange(false);
                     //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
