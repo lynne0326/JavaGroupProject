@@ -25,7 +25,7 @@ public class createCSV {
         public static void createCSVFile() throws IOException, SQLException {
             File file = new File("temp10.csv");
             File file2 = new File("temp11.csv");
-            if (!file.exists() && !file2.exists()) {
+            if (!file.exists() ) {
             FileWriter fw = new FileWriter("temp10.csv");
             FileWriter fw2 = new FileWriter("temp11.csv");
             

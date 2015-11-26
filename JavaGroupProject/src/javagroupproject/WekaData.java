@@ -7,7 +7,6 @@ package javagroupproject;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
@@ -15,14 +14,11 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static javagroupproject.texttest.s;
-import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
-import weka.classifiers.functions.LibSVM;
 import weka.clusterers.ClusterEvaluation;
 import weka.clusterers.SimpleKMeans;
 import weka.core.Instances;
-import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
 
 /**
@@ -79,12 +75,13 @@ public class WekaData {
             SimpleKMeans model = new SimpleKMeans();//simpe em
             model.setNumClusters(2);//number of clusters
             model.buildClusterer(data);
-            toDataCluster(s);
+            dataset = toDataCluster(s);
 
             //evaluation
             ClusterEvaluation clsEval = new ClusterEvaluation();
             clsEval.setClusterer(model);
             clsEval.evaluateClusterer(data);
+
             
             return dataset;
             
@@ -142,8 +139,12 @@ public class WekaData {
     /**
      * @return the result
      */
-    public static String getResult() {
-        return result;
+    public static String [] getResult() {
+        if(result!=null){
+            String [] resultSplited = result.split("\n");
+            return resultSplited;
+        }
+        return null;
     }
 
     /**
@@ -152,4 +153,5 @@ public class WekaData {
     public static void setResult(String aResult) {
         result = aResult;
     }
+    
 }
