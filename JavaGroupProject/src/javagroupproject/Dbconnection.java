@@ -1,5 +1,6 @@
 package javagroupproject;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +23,20 @@ public class Dbconnection {
     private static final String URL="jdbc:mysql://mydatabase.cwhndt08kykb.us-west-2.rds.amazonaws.com:3306/studentinfor";
     private static final String USER="lynne";
     private static final String PASSWORD="abcd1234";
+    
+    /**
+     * Connect to database.
+     */
+    public static Connection getConnection() {
+        Connection conn = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return conn;
+    }
     
     /**
      * Returns the dataset under the query from database.
