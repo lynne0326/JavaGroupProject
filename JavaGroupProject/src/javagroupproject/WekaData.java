@@ -25,9 +25,10 @@ import weka.core.converters.CSVLoader;
  *
  * @author Shuang
  */
-public class WekaTest {
+public class WekaData {
 
 
+    
     static Instances dataSet;
     
     
@@ -46,39 +47,42 @@ public class WekaTest {
             saver.setFile(file);
             saver.writeBatch();
         } catch (Exception ex) {
-            Logger.getLogger(WekaTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WekaData.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dataSet;
     }
   
         
-    public static void weka1() throws IOException, SQLException  {
+    public static ArrayList<Double> weka1() throws IOException, SQLException  {
         //File file = createCSV.createCSVFile();
         createCSV.createCSVFile();
         System.out.println("hey");
+        ArrayList<Double> data = new ArrayList<Double>();
         try {
         
             LibSVM svm = new LibSVM();
             
             NaiveBayes nB = new NaiveBayes();
             
-            train(nB, csv2arff());
+            data = train(nB, csv2arff());
         } catch (IOException ex) {
-            Logger.getLogger(WekaTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WekaData.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            Logger.getLogger(WekaTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(WekaData.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return data;
     }
     
-    private static void train(Classifier c, Instances train) throws Exception {
+    private static ArrayList<Double> train(Classifier c, Instances train) throws Exception {
         c.buildClassifier(train);
         Evaluation eval = new Evaluation(train);
         eval.crossValidateModel(c, train, 10, new Random(1));
 //        System.out.println(eval.toClassDetailsString());
         String result = eval.toClassDetailsString();
         ArrayList<Double> data = toData(result);
-        for(double d:data)
-            System.out.println(d);
+        return data;
+//        for(double d:data)
+//            System.out.println(d);
         
     }
     

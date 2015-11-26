@@ -2,6 +2,7 @@ package javagroupproject;
 
 import java.awt.CardLayout;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,7 +77,6 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         dmContentPane = new javax.swing.JPanel();
         nbaPanel = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
         clusterPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -456,26 +456,6 @@ public class MainFrame extends javax.swing.JFrame {
         dmContentPane.setLayout(new java.awt.CardLayout());
 
         nbaPanel.setBackground(new java.awt.Color(235, 236, 238));
-
-        jLabel15.setText("NBA");
-
-        javax.swing.GroupLayout nbaPanelLayout = new javax.swing.GroupLayout(nbaPanel);
-        nbaPanel.setLayout(nbaPanelLayout);
-        nbaPanelLayout.setHorizontalGroup(
-            nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nbaPanelLayout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(jLabel15)
-                .addContainerGap(534, Short.MAX_VALUE))
-        );
-        nbaPanelLayout.setVerticalGroup(
-            nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nbaPanelLayout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(jLabel15)
-                .addContainerGap(404, Short.MAX_VALUE))
-        );
-
         dmContentPane.add(nbaPanel, "card2");
 
         clusterPane.setBackground(new java.awt.Color(235, 236, 238));
@@ -558,7 +538,6 @@ public void generalReport()
     private void customizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customizeButtonActionPerformed
         CardLayout c = (CardLayout)mainPanel.getLayout();
         c.show(mainPanel, "update");
-        
     }//GEN-LAST:event_customizeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -629,6 +608,12 @@ public void generalReport()
         CardLayout c = (CardLayout) dmContentPane.getLayout();
             if(methodComboBox.getSelectedIndex()==0) {
                 c.show(dmContentPane, "card2");
+        try {
+            nbaPanel.removeAll();
+            addChart(DbImplement.naiveBayes(), nbaPanel);
+            } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             if(methodComboBox.getSelectedIndex()==1) {
                 c.show(dmContentPane, "card3");
@@ -702,7 +687,6 @@ public void generalReport()
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

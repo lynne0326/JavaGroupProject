@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Paint;
+import java.io.IOException;
 import org.jfree.chart.ChartFactory;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,7 +23,12 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.labels.BoxAndWhiskerToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DefaultDrawingSupplier;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
+import org.jfree.chart.renderer.category.StandardBarPainter;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 
 /**
@@ -165,5 +171,47 @@ public static ChartPanel SalaryByYear(String year){
             p.setOpaque(false); 
             return p;
     }
+public static ChartPanel naiveBayes() throws IOException
+{
+        ChartPanel panel = null;
+        JFreeChart chart = null;
+
+            try {
+                ArrayList<Double> data = WekaData.weka1();            
+                DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            String[] category = {"Medium","Low","NoPay","Excellent","High"};
+            String[] value = {"TP Rate","FP Rate","Precision","Recall","F-Measure","ROC Area"};
+            int k =0;
+            for(int i = 0; i < 5;i++)
+                for(int j = 0; j < 6; j++)
+                {
+                    double v = data.get(k);
+                    k++;
+                    dataset.addValue(v,category[i] ,value[j]); 
+                } 
+    
+                        chart = ChartFactory.createBarChart(
+                            "NaiveBayes on Slary",null,null,
+                            (CategoryDataset)dataset,
+                            PlotOrientation.VERTICAL,
+                            true,
+                            true,
+                            false);
+                    CategoryPlot plot = (CategoryPlot) chart.getPlot();
+                    plot.setBackgroundAlpha(0.5f);
+                    plot.setDrawingSupplier(getSupplier());
+                    BarRenderer customBarRenderer2 = (BarRenderer) plot.getRenderer();
+                    customBarRenderer2.setBarPainter( new StandardBarPainter() );
+                    customBarRenderer2.setItemMargin(-0.01);
+                    chart.setBorderVisible(false);
+                    chart.setBackgroundPaint(null);
+                    panel = new ChartPanel(chart);
+                    panel.setPreferredSize(new Dimension(700, 300));
+                    
+            } catch (SQLException ex) {
+                Logger.getLogger(JChart.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return panel;
+}   
   
 }

@@ -15,6 +15,7 @@ import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYDataset;
 
@@ -144,4 +145,27 @@ public class JChart {
         return a;
         
     }
+public static ChartPanel naiveBayes(DefaultCategoryDataset dataset)
+{
+    
+    ChartPanel panel = null;
+    JFreeChart chart = null;
+                        chart = ChartFactory.createBarChart(
+                            "NaiveBayes on Slary",null,null,
+                            (CategoryDataset)dataset,
+                            PlotOrientation.VERTICAL,
+                            true,
+                            true,
+                            false);
+                    CategoryPlot plot = (CategoryPlot) chart.getPlot();
+                    plot.setBackgroundAlpha(0.5f);
+                    plot.setDrawingSupplier(getSupplier());
+                    BarRenderer customBarRenderer2 = (BarRenderer) plot.getRenderer();
+                    customBarRenderer2.setBarPainter( new StandardBarPainter() );
+                    customBarRenderer2.setItemMargin(-0.01);
+                    chart.setBorderVisible(false);
+                    chart.setBackgroundPaint(null);
+                    panel = new ChartPanel(chart);
+                    return panel;
+}
 }
