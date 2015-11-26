@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,6 +21,8 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.NumberTickUnit;
+import org.jfree.chart.axis.TickUnits;
 import org.jfree.chart.labels.BoxAndWhiskerToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.DefaultDrawingSupplier;
@@ -207,19 +210,19 @@ public static ChartPanel naiveBayes() throws IOException
         chart.setBorderVisible(false);
         chart.setBackgroundPaint(null);
         panel = new ChartPanel(chart);
-        panel.setPreferredSize(new Dimension(700, 300));
+        panel.setPreferredSize(new Dimension(700, 350));
         return panel;
 }   
 
-public static ChartPanel clusterBubble(){
+public static ChartPanel clusterBubble(String s){
         ChartPanel panel = null;
         JFreeChart chart = null;
         
         DefaultXYZDataset dataset = new DefaultXYZDataset();
         
-        ArrayList<Double> dataList = WekaData.cluster("GPA");
+        ArrayList<Double> dataList = WekaData.cluster(s);
        
-        double[] xVal = {10,20};
+        double[] xVal = {1,2};
         
         double[] yVal = {dataList.get(4), dataList.get(5)};
         double[] zVal = {dataList.get(1)/10000, dataList.get(2)/10000};
@@ -228,7 +231,7 @@ public static ChartPanel clusterBubble(){
         dataset.addSeries("Number of Students", bubbleVal);
         
         chart = ChartFactory.createBubbleChart(
-                "Cluster Analysis for GPA", " Salary ", "Cluster Type", dataset, PlotOrientation.HORIZONTAL, true, true, true);
+                "Cluster Analysis for "+ s, s, "Cluster Type", dataset, PlotOrientation.HORIZONTAL, true, true, true);
         XYPlot xyplot = ( XYPlot )chart.getPlot( );
         xyplot.setBackgroundAlpha(0.5f);
         xyplot.setDrawingSupplier(getSupplier());
@@ -240,10 +243,16 @@ public static ChartPanel clusterBubble(){
         NumberAxis numberaxis1 = ( NumberAxis )xyplot.getRangeAxis( );
         numberaxis1.setLowerMargin( 0.8 );
         numberaxis1.setUpperMargin( 0.9 );
+        
+        TickUnits stdUnits = new TickUnits();
+        DecimalFormat formatter = new DecimalFormat("##,###");
+        stdUnits.add(new NumberTickUnit(1,formatter));
+        stdUnits.add(new NumberTickUnit(2,formatter));
+        numberaxis1.setStandardTickUnits(stdUnits);
         chart.setBorderVisible(false);
         chart.setBackgroundPaint(null);          
         panel = new ChartPanel(chart);
-        panel.setPreferredSize(new Dimension(700, 300));
+        panel.setPreferredSize(new Dimension(750, 400));
         
     
     return panel;

@@ -77,9 +77,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         dmContentPane = new javax.swing.JPanel();
         nbaPanel = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         clusterPane = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1030, 700));
@@ -455,47 +458,102 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         dmContentPane.setBackground(new java.awt.Color(235, 236, 238));
+        dmContentPane.setPreferredSize(new java.awt.Dimension(851, 577));
         dmContentPane.setLayout(new java.awt.CardLayout());
 
         nbaPanel.setBackground(new java.awt.Color(235, 236, 238));
+        nbaPanel.setPreferredSize(new java.awt.Dimension(851, 577));
 
+        jPanel8.setBackground(new java.awt.Color(235, 236, 238));
+
+        jPanel4.setBackground(new java.awt.Color(235, 236, 238));
         jPanel4.setPreferredSize(new java.awt.Dimension(850, 352));
+        jPanel4.setSize(new java.awt.Dimension(850, 352));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGap(0, 1225, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 184, Short.MAX_VALUE)
+            .addGap(0, 138, Short.MAX_VALUE)
         );
-
-        jPanel5.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout nbaPanelLayout = new javax.swing.GroupLayout(nbaPanel);
         nbaPanel.setLayout(nbaPanelLayout);
         nbaPanelLayout.setHorizontalGroup(
             nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE)
             .addGroup(nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addGroup(nbaPanelLayout.createSequentialGroup()
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 373, Short.MAX_VALUE)))
         );
         nbaPanelLayout.setVerticalGroup(
             nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nbaPanelLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 368, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 439, Short.MAX_VALUE))
             .addGroup(nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nbaPanelLayout.createSequentialGroup()
-                    .addGap(0, 184, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(nbaPanelLayout.createSequentialGroup()
+                    .addGap(136, 136, 136)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(23, Short.MAX_VALUE)))
         );
 
         dmContentPane.add(nbaPanel, "card2");
 
         clusterPane.setBackground(new java.awt.Color(235, 236, 238));
+        clusterPane.setPreferredSize(new java.awt.Dimension(851, 577));
+
+        jPanel6.setBackground(new java.awt.Color(235, 236, 238));
+        jPanel6.setToolTipText("");
+        jPanel6.setPreferredSize(new java.awt.Dimension(850, 450));
+
+        jPanel7.setBackground(new java.awt.Color(235, 236, 238));
+        jPanel7.setPreferredSize(new java.awt.Dimension(850, 100));
+
+        jLabel15.setBackground(new java.awt.Color(235, 236, 238));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout clusterPaneLayout = new javax.swing.GroupLayout(clusterPane);
+        clusterPane.setLayout(clusterPaneLayout);
+        clusterPaneLayout.setHorizontalGroup(
+            clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(clusterPaneLayout.createSequentialGroup()
+                .addGroup(clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(375, 375, 375))
+        );
+        clusterPaneLayout.setVerticalGroup(
+            clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(clusterPaneLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         dmContentPane.add(clusterPane, "card3");
 
         javax.swing.GroupLayout dmPaneLayout = new javax.swing.GroupLayout(dmPane);
@@ -634,8 +692,8 @@ public void generalReport()
             if(methodComboBox.getSelectedIndex()==0) {
                 c.show(dmContentPane, "card2");
         try {
-            jPanel5.removeAll();
-            addChart(DbImplement.naiveBayes(), jPanel5);
+            jPanel8.removeAll();
+            addChart(DbImplement.naiveBayes(), jPanel8);
             WekaData.classify();
             String[] table = WekaData.getResult();
             
@@ -646,7 +704,7 @@ public void generalReport()
             }
             if(methodComboBox.getSelectedIndex()==1) {
                 c.show(dmContentPane, "card3");
-                addChart(DbImplement.clusterBubble(), clusterPane);
+                addChart(DbImplement.clusterBubble("salary"), clusterPane);
             } 
             
             
@@ -718,6 +776,7 @@ public void generalReport()
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -730,7 +789,9 @@ public void generalReport()
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jchartScrollPane;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
