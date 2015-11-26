@@ -72,7 +72,7 @@ public class Dbconnection {
         }
         try (java.sql.Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement state = conn.createStatement()) {
-            state.executeUpdate("load DATA LOCAL INFILE '"+filepath+"' INTO TABLE figure FIELDS TERMINATED BY ',' ENCLOSED BY '' LINES TERMINATED BY '\\n' ");
+            state.executeUpdate("load DATA LOCAL INFILE '"+filepath+"' INTO TABLE student2 FIELDS TERMINATED BY ',' ENCLOSED BY '' LINES TERMINATED BY '\\n' ");
             } catch (SQLException ex) {
             Logger.getLogger(Dbconnection.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -94,7 +94,7 @@ public class Dbconnection {
         }
         try (java.sql.Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement state = conn.createStatement()) {
-            rs = state.executeQuery("SELECT count(*) FROM studentinfor.`student2.0`;");
+            rs = state.executeQuery("SELECT count(*) FROM studentinfor.student2;");
             rs.next();
             total = rs.getInt(1);
             } catch (SQLException ex) {
