@@ -37,6 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         bgPanel = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         leftPanel = new javax.swing.JPanel();
         dashButton = new javax.swing.JButton();
@@ -73,20 +74,27 @@ public class MainFrame extends javax.swing.JFrame {
         dashPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1030, 700));
         setResizable(false);
-        setSize(new java.awt.Dimension(1000, 700));
+        setSize(new java.awt.Dimension(1030, 700));
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         bgPanel.setBackground(new java.awt.Color(235, 236, 238));
         bgPanel.setPreferredSize(new java.awt.Dimension(1000, 700));
         bgPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        topPanel.setLayout(new javax.swing.OverlayLayout(topPanel));
+        topPanel.setBackground(new java.awt.Color(49, 209, 235));
+        topPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Avenir Next", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Dashboard");
+        topPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 50, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/top.jpg"))); // NOI18N
-        topPanel.add(jLabel1);
+        topPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        bgPanel.add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 80));
+        bgPanel.add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 80));
 
         leftPanel.setBackground(new java.awt.Color(38, 42, 51));
         leftPanel.setPreferredSize(new java.awt.Dimension(177, 800));
@@ -159,7 +167,7 @@ public class MainFrame extends javax.swing.JFrame {
         welcomePane.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/triangle.png"))); // NOI18N
-        welcomePane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 750, 520));
+        welcomePane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 750, 520));
 
         jLabel12.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 166, 220));
@@ -229,11 +237,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1209, Short.MAX_VALUE)
+            .addGap(0, 851, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 1197, Short.MAX_VALUE)
+                    .addComponent(graphPanelByYear, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
@@ -253,9 +261,9 @@ public class MainFrame extends javax.swing.JFrame {
             graphPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(graphPanelLayout.createSequentialGroup()
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 23, Short.MAX_VALUE))
             .addGroup(graphPanelLayout.createSequentialGroup()
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         graphPanelLayout.setVerticalGroup(
@@ -263,7 +271,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(graphPanelLayout.createSequentialGroup()
                 .addComponent(selectYearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE))
+                .addComponent(jchartScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
         );
 
         mainPanel.add(graphPanel, "graphPanel");
@@ -301,7 +309,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pathLabel)
-                .addContainerGap(919, Short.MAX_VALUE))
+                .addContainerGap(539, Short.MAX_VALUE))
         );
         updatePanelLayout.setVerticalGroup(
             updatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +321,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(pathLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(520, Short.MAX_VALUE))
+                .addContainerGap(476, Short.MAX_VALUE))
         );
 
         mainPanel.add(updatePanel, "update");
@@ -321,7 +329,6 @@ public class MainFrame extends javax.swing.JFrame {
         dashScrollPane.setBackground(new java.awt.Color(235, 236, 238));
         dashScrollPane.setBorder(null);
         dashScrollPane.setPreferredSize(new java.awt.Dimension(851, 620));
-        dashScrollPane.setSize(new java.awt.Dimension(851, 620));
         dashScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanel3.setPreferredSize(new java.awt.Dimension(851, 848));
@@ -393,7 +400,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel.add(dashScrollPane, "maincard");
 
-        bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 820, 620));
+        bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 850, 620));
 
         getContentPane().add(bgPanel);
 
@@ -557,6 +564,7 @@ public void generalReport()
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
