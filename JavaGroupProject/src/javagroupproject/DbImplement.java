@@ -139,6 +139,13 @@ public static ChartPanel SalaryByYear(String year){
         }
         return p;
     }
+/**
+ * 
+ * @param list
+ * @param basis
+ * @param year
+ * @return 
+ */
     public static ChartPanel boxPlot(List list,String basis,String year)
     {
             ChartPanel p = null;
