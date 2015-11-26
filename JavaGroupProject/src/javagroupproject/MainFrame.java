@@ -508,7 +508,6 @@ public void generalReport()
                 addChart(DbImplement.GREByYear("2014"), graphPanelByYear);
                 addChart(DbImplement.GMATByYear("2014"), graphPanelByYear);
                 addChart(DbImplement.SATByYear("2014"), graphPanelByYear);
-                addChart(DbImplement.SalaryByYear("2014"), graphPanelByYear);
                 addChart(DbImplement.courseByYear("2014"), graphPanelByYear);
                 break;
         }
