@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javagroupproject;
 
 import java.io.File;
@@ -13,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static javagroupproject.texttest.s;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.clusterers.ClusterEvaluation;
@@ -63,19 +57,23 @@ public class WekaData {
         ArrayList<Double> dataset = null;
         try {
             Instances data = createInstances(new File("temp11.csv"));
-            if (str.equals("salary")) 
+            if (str.equals("salary")) {
                 data.deleteAttributeAt(1);
-            else if (str.equals("GPA"))
+                System.out.println("I'm salary");
+            }
+            else if (str.equals("GPA")){
                 data.deleteAttributeAt(0);
+                System.out.println("I'm GPA");
+            }
             else {
                 System.out.println("cannot cluster");
                 System.exit(0);
             }
             
-            SimpleKMeans model = new SimpleKMeans();//simpe em
+            SimpleKMeans model = new SimpleKMeans();//simple em
             model.setNumClusters(2);//number of clusters
             model.buildClusterer(data);
-            dataset = toDataCluster(s);
+            dataset = toDataCluster(str);
 
             //evaluation
             ClusterEvaluation clsEval = new ClusterEvaluation();
@@ -132,7 +130,7 @@ public class WekaData {
     public static void main(String[] args) throws Exception {
         createCSV.createCSVFile();
         classify();
-        cluster("salary");
+//        cluster("salary");
         cluster("GPA");
     }
 
