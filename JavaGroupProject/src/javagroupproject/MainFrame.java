@@ -637,7 +637,7 @@ public void generalReport()
             if(methodComboBox.getSelectedIndex()==1) {
                 c.show(dmContentPane, "card3");
             } 
-            
+            //
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void otherReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherReportButtonActionPerformed
