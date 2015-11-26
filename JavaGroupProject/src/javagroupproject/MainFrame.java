@@ -72,6 +72,15 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         dashPane = new javax.swing.JPanel();
+        dmPane = new javax.swing.JPanel();
+        selectMethod = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        methodComboBox = new javax.swing.JComboBox();
+        jButton3 = new javax.swing.JButton();
+        dmContentPane = new javax.swing.JPanel();
+        nbaPanel = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        clusterPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1030, 700));
@@ -120,6 +129,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         otherReportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_3.png")));
         otherReportButton.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_3p.png")));
+        otherReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otherReportButtonActionPerformed(evt);
+            }
+        });
         leftPanel.add(otherReportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 150, 60));
 
         customizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/button_4.png")));
@@ -400,6 +414,105 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel.add(dashScrollPane, "maincard");
 
+        dmPane.setBackground(new java.awt.Color(235, 236, 238));
+        dmPane.setToolTipText("");
+        dmPane.setPreferredSize(new java.awt.Dimension(851, 620));
+
+        selectMethod.setBackground(new java.awt.Color(235, 236, 238));
+
+        jLabel14.setText("Select Report Type: ");
+
+        methodComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Naive Bayesian Analysis", "Cluster Analysis" }));
+
+        jButton3.setText("See result");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout selectMethodLayout = new javax.swing.GroupLayout(selectMethod);
+        selectMethod.setLayout(selectMethodLayout);
+        selectMethodLayout.setHorizontalGroup(
+            selectMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(selectMethodLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(methodComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        selectMethodLayout.setVerticalGroup(
+            selectMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, selectMethodLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(selectMethodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(methodComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(10, 10, 10))
+        );
+
+        dmContentPane.setBackground(new java.awt.Color(235, 236, 238));
+        dmContentPane.setLayout(new java.awt.CardLayout());
+
+        nbaPanel.setBackground(new java.awt.Color(235, 236, 238));
+
+        jLabel15.setText("NBA");
+
+        javax.swing.GroupLayout nbaPanelLayout = new javax.swing.GroupLayout(nbaPanel);
+        nbaPanel.setLayout(nbaPanelLayout);
+        nbaPanelLayout.setHorizontalGroup(
+            nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nbaPanelLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jLabel15)
+                .addContainerGap(534, Short.MAX_VALUE))
+        );
+        nbaPanelLayout.setVerticalGroup(
+            nbaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nbaPanelLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(jLabel15)
+                .addContainerGap(404, Short.MAX_VALUE))
+        );
+
+        dmContentPane.add(nbaPanel, "card2");
+
+        clusterPane.setBackground(new java.awt.Color(235, 236, 238));
+
+        javax.swing.GroupLayout clusterPaneLayout = new javax.swing.GroupLayout(clusterPane);
+        clusterPane.setLayout(clusterPaneLayout);
+        clusterPaneLayout.setHorizontalGroup(
+            clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 850, Short.MAX_VALUE)
+        );
+        clusterPaneLayout.setVerticalGroup(
+            clusterPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 552, Short.MAX_VALUE)
+        );
+
+        dmContentPane.add(clusterPane, "card3");
+
+        javax.swing.GroupLayout dmPaneLayout = new javax.swing.GroupLayout(dmPane);
+        dmPane.setLayout(dmPaneLayout);
+        dmPaneLayout.setHorizontalGroup(
+            dmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(selectMethod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dmContentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dmPaneLayout.setVerticalGroup(
+            dmPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dmPaneLayout.createSequentialGroup()
+                .addComponent(selectMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dmContentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(dmPane, "dmcard");
+
         bgPanel.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 850, 620));
 
         getContentPane().add(bgPanel);
@@ -448,9 +561,11 @@ public void generalReport()
     private void customizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customizeButtonActionPerformed
         CardLayout c = (CardLayout)mainPanel.getLayout();
         c.show(mainPanel, "update");
+        
     }//GEN-LAST:event_customizeButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      
         Dbconnection.connectDatabase(pathLabel.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -514,6 +629,22 @@ public void generalReport()
         }
     }//GEN-LAST:event_yearButtonActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CardLayout c = (CardLayout) dmContentPane.getLayout();
+            if(methodComboBox.getSelectedIndex()==0) {
+                c.show(dmContentPane, "card2");
+            }
+            if(methodComboBox.getSelectedIndex()==1) {
+                c.show(dmContentPane, "card3");
+            } 
+            
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void otherReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherReportButtonActionPerformed
+        CardLayout c = (CardLayout)mainPanel.getLayout();
+        c.show(mainPanel, "dmcard");
+    }//GEN-LAST:event_otherReportButtonActionPerformed
+
     /**
      * This method add chart to the main panel
      * @param chart 
@@ -557,19 +688,25 @@ public void generalReport()
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bgPanel;
+    private javax.swing.JPanel clusterPane;
     private javax.swing.JButton customizeButton;
     private javax.swing.JButton dashButton;
     private javax.swing.JPanel dashPane;
     private javax.swing.JScrollPane dashScrollPane;
+    private javax.swing.JPanel dmContentPane;
+    private javax.swing.JPanel dmPane;
     private javax.swing.JPanel graphPanel;
     private javax.swing.JPanel graphPanelByYear;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -584,8 +721,11 @@ public void generalReport()
     private javax.swing.JScrollPane jchartScrollPane;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JComboBox methodComboBox;
+    private javax.swing.JPanel nbaPanel;
     private javax.swing.JButton otherReportButton;
     private javax.swing.JLabel pathLabel;
+    private javax.swing.JPanel selectMethod;
     private javax.swing.JPanel selectYearPanel;
     private javax.swing.JButton statReportButton;
     private javax.swing.JPanel topPanel;
