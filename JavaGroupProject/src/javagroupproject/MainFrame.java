@@ -409,6 +409,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void dashButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashButtonActionPerformed
         CardLayout c = (CardLayout)mainPanel.getLayout(); 
+        jLabel11.setText(String.valueOf(Handler.getTotalRecord()));
         c.show(mainPanel, "maincard");
         dashPane.removeAll();
         generalReport();
