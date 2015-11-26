@@ -30,7 +30,7 @@ public class WekaData {
 
     
     static Instances dataSet;
-    
+    static String result;
     
     public static Instances csv2arff() {
         
@@ -78,12 +78,16 @@ public class WekaData {
         Evaluation eval = new Evaluation(train);
         eval.crossValidateModel(c, train, 10, new Random(1));
 //        System.out.println(eval.toClassDetailsString());
-        String result = eval.toClassDetailsString();
+        result = eval.toClassDetailsString();
         ArrayList<Double> data = toData(result);
         return data;
 //        for(double d:data)
 //            System.out.println(d);
         
+    }
+    public static String getResult()
+    {
+        return result;
     }
     
     private static ArrayList<Double> toData(String s){
