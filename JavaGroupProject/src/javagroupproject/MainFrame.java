@@ -83,6 +83,7 @@ public class MainFrame extends javax.swing.JFrame {
         clusterPane = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1030, 700));
@@ -518,6 +519,9 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(850, 100));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel15.setText("The Circle size shows the number of students gathered around particular salary.");
+        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
         javax.swing.GroupLayout clusterPaneLayout = new javax.swing.GroupLayout(clusterPane);
         clusterPane.setLayout(clusterPaneLayout);
         clusterPaneLayout.setHorizontalGroup(
@@ -769,6 +773,7 @@ public void generalReport()
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

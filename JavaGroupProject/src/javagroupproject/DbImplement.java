@@ -197,7 +197,7 @@ public static ChartPanel naiveBayes() throws IOException
                 dataset.addValue(v,category[i] ,value[j]);
             }
         chart = ChartFactory.createBarChart(
-                "NaiveBayes on Slary",null,null,
+                "NaiveBayes on Slary level",null,null,
                 (CategoryDataset)dataset,
                 PlotOrientation.VERTICAL,
                 true,

@@ -1,9 +1,6 @@
 package javagroupproject;
 
-import java.sql.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import org.jfree.chart.ChartPanel;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.general.Dataset;
@@ -11,7 +8,6 @@ import org.jfree.data.general.PieDataset;
 import org.jfree.data.jdbc.JDBCCategoryDataset;
 import org.jfree.data.jdbc.JDBCPieDataset;
 import org.jfree.data.jdbc.JDBCXYDataset;
-import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 import org.jfree.data.xy.XYDataset;
 /**
  * This class is to handle 

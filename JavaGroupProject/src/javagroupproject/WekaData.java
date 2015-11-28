@@ -59,11 +59,9 @@ public class WekaData {
             Instances data = createInstances(new File("temp11.csv"));
             if (str.equals("salary")) {
                 data.deleteAttributeAt(1);
-                System.out.println("I'm salary");
             }
             else if (str.equals("GPA")){
                 data.deleteAttributeAt(0);
-                System.out.println("I'm GPA");
             }
             else {
                 System.out.println("cannot cluster");
@@ -73,12 +71,14 @@ public class WekaData {
             SimpleKMeans model = new SimpleKMeans();//simple em
             model.setNumClusters(2);//number of clusters
             model.buildClusterer(data);
-            dataset = toDataCluster(str);
+            dataset = toDataCluster(model.toString());
+            
 
             //evaluation
             ClusterEvaluation clsEval = new ClusterEvaluation();
             clsEval.setClusterer(model);
             clsEval.evaluateClusterer(data);
+            
 
             
             return dataset;
@@ -125,13 +125,6 @@ public class WekaData {
             }
         }
         return data;
-    }
-        
-    public static void main(String[] args) throws Exception {
-        createCSV.createCSVFile();
-        classify();
-//        cluster("salary");
-        cluster("GPA");
     }
 
     /**
