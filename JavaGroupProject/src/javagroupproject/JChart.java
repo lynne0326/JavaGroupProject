@@ -21,100 +21,113 @@ import org.jfree.data.xy.XYDataset;
 
 
 /**
- *
+ * This class is to draw charts
  * @author mac
  */
 public class JChart {
-    
+    /**
+     * This method is to draw different charts according to different datasets and chart types 
+     * @param dataSet receive the dataset from the query from the database
+     * @param chartTitle name a chart title
+     * @param chartType inform what kind of chart should be drawn
+     * @return return a chart panel
+     * @throws ClassNotFoundException
+     * @throws SQLException 
+     */
         public static ChartPanel generateChart(Dataset dataSet, String chartTitle, String chartType) throws ClassNotFoundException, SQLException {
         
             JFreeChart chart = null;
             ChartPanel panel = null;
-        
+        /**
+         * draw different chart according to required chart type
+         */
             switch(chartType) {
                 case "pie":
-                    chart = ChartFactory.createPieChart(      
+                    chart = ChartFactory.createPieChart(// draw pie chart   
                             chartTitle,  // chart title
                             (PieDataset)dataSet, // data
-                            true,           // include legend
+                            true,           
                             true,           
                             false);
-                    PiePlot plot1 = (PiePlot) chart.getPlot();                
-                    plot1.setDrawingSupplier(getSupplier());
-                    plot1.setOutlinePaint(null);
-                    plot1.setShadowPaint(null);
-                    plot1.setLabelOutlinePaint(null);
-                    plot1.setBackgroundPaint(null);
+                    PiePlot plot1 = (PiePlot) chart.getPlot();// create plot to set properties of the chart             
+                    plot1.setDrawingSupplier(getSupplier());// call method getSupplier() to get coulor from a predefined coulour pool
+                    plot1.setOutlinePaint(null);// no outline
+                    plot1.setShadowPaint(null);// no shadow
+                    plot1.setLabelOutlinePaint(null);//no label outline
+                    plot1.setBackgroundPaint(null);// bakground opaque
                     break;
                 case "categoryx":
-                    chart = ChartFactory.createBarChart(
-                            chartTitle, null, null, 
-                            (CategoryDataset)dataSet,
-                            PlotOrientation.HORIZONTAL,
+                    chart = ChartFactory.createBarChart(// create bar chart for citizenship display
+                            chartTitle, null, null, // chart title
+                            (CategoryDataset)dataSet,// data
+                            PlotOrientation.HORIZONTAL,// set the chart horizonally
                             true,
                             true,
                             false);
                     CategoryPlot plot3 = (CategoryPlot) chart.getPlot();
                     plot3.setBackgroundAlpha(0.5f);
-                    plot3.setDrawingSupplier(getSupplier());
+                    plot3.setDrawingSupplier(getSupplier());// get predefined color
                     BarRenderer customBarRenderer = (BarRenderer) plot3.getRenderer();
-                    customBarRenderer.setBarPainter( new StandardBarPainter() );
-                    customBarRenderer.setItemMargin(-0.01);
+                   customBarRenderer.setBarPainter( new StandardBarPainter() );
+                   customBarRenderer.setItemMargin(-0.01);
                     break;
                 case "categoryy":
-                    chart = ChartFactory.createBarChart(
-                            chartTitle,null,null,
-                            (CategoryDataset)dataSet,
-                            PlotOrientation.HORIZONTAL,
+                    chart = ChartFactory.createBarChart(//create a bar chart for course disolay
+                            chartTitle,null,null,//chart title
+                            (CategoryDataset)dataSet,//data
+                            PlotOrientation.HORIZONTAL,// set the chart horizonally
                             true,
                             true,
                             false);
                     CategoryPlot plot5 = (CategoryPlot) chart.getPlot();
                     plot5.setBackgroundAlpha(0.5f);
-                    plot5.setDrawingSupplier(getSupplier());
+                    plot5.setDrawingSupplier(getSupplier());// get predefined color
                     BarRenderer customBarRenderer2 = (BarRenderer) plot5.getRenderer();
                     customBarRenderer2.setBarPainter( new StandardBarPainter() );
                     customBarRenderer2.setItemMargin(-0.01);
                     break;
                 case "line":
-                    chart = ChartFactory.createLineChart(      
+                    chart = ChartFactory.createLineChart(// draw a line chart of average GPA 
                             chartTitle, "Year","GPA Grade", // chart title
                            (CategoryDataset)dataSet,// data
-                            PlotOrientation.VERTICAL,
-                            true,           // include legend
+                            PlotOrientation.VERTICAL,// set the chart vertically
+                            true,          
                             true,
                             false);
                     CategoryPlot plot4 = (CategoryPlot) chart.getPlot();
                     plot4.setBackgroundAlpha(0.5f);
-                    plot4.setDomainGridlinePaint(Color.white); 
+                    plot4.setDomainGridlinePaint(Color.white); // set bakground line as white
                     plot4.setRangeGridlinePaint(Color.white);
-                    plot4.setDrawingSupplier(getSupplier());
+                    plot4.setDrawingSupplier(getSupplier());// get predefined color
                     ValueAxis valueaxis = plot4.getRangeAxis();
-                    valueaxis.setRange(3.3D, 3.5D);
+                    valueaxis.setRange(3.3D, 3.5D);// set GPA range from 3.3 to 3.5
                     valueaxis.setAutoRange(false);
-                    //XYLineAndShapeRenderer xylineandshaperenderer = (XYLineAndShapeRenderer)plot2.getRenderer(); 
                     break;
             }
-            chart.setBorderVisible(false);
-            chart.setBackgroundPaint(null);
+            chart.setBorderVisible(false);// no border
+            chart.setBackgroundPaint(null);// background opaque
             
-            panel = new ChartPanel(chart);   
+            panel = new ChartPanel(chart);// turn the chart to the chartpanel  
             if(chartType.equals("categoryx") )
-            panel.setPreferredSize(new Dimension(700, 300));
+            panel.setPreferredSize(new Dimension(700, 300));// set course chart larger size for diaplaying complete course name
             else
             panel.setPreferredSize(new Dimension(400, 300));    
             panel.setOpaque(false);
-            return panel;
+            return panel;// return chartPanel
                     
     }
+        /**
+         * This method is to define some color for charts
+         * @return  return drawing supplier
+         */
     public static DefaultDrawingSupplier getSupplier()
     {
         Paint[] color = new Paint[]{
-                     new Color(59,189,211),
+                     new Color(59,189,211),// color code
                      new Color(178,184,194),
                      new Color(135,206,250),
                      new Color(0,191,255),
-                     ChartColor.LIGHT_BLUE,
+                     ChartColor.LIGHT_BLUE,// color
                      ChartColor.DARK_GREEN,
                      Color.lightGray,
                      Color.green,
@@ -142,30 +155,7 @@ public class JChart {
                              DefaultDrawingSupplier.DEFAULT_STROKE_SEQUENCE,
                              DefaultDrawingSupplier.DEFAULT_OUTLINE_STROKE_SEQUENCE,
                              DefaultDrawingSupplier.DEFAULT_SHAPE_SEQUENCE);
-        return a;
+        return a;// return a drawing supplier
         
     }
-public static ChartPanel naiveBayes(DefaultCategoryDataset dataset)
-{
-    
-    ChartPanel panel = null;
-    JFreeChart chart = null;
-                        chart = ChartFactory.createBarChart(
-                            "NaiveBayes on Slary",null,null,
-                            (CategoryDataset)dataset,
-                            PlotOrientation.VERTICAL,
-                            true,
-                            true,
-                            false);
-                    CategoryPlot plot = (CategoryPlot) chart.getPlot();
-                    plot.setBackgroundAlpha(0.5f);
-                    plot.setDrawingSupplier(getSupplier());
-                    BarRenderer customBarRenderer2 = (BarRenderer) plot.getRenderer();
-                    customBarRenderer2.setBarPainter( new StandardBarPainter() );
-                    customBarRenderer2.setItemMargin(-0.01);
-                    chart.setBorderVisible(false);
-                    chart.setBackgroundPaint(null);
-                    panel = new ChartPanel(chart);
-                    return panel;
-}
 }
