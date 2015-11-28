@@ -2,6 +2,7 @@ package javagroupproject;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
@@ -37,6 +38,11 @@ public class WekaData {
     public static ArrayList<Double> classify() {
         ArrayList<Double> data = null;
         try {
+            createCSV.createCSVFile();
+        } catch (IOException | SQLException ex) {
+            Logger.getLogger(WekaData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
             NaiveBayes nB = new NaiveBayes();
             Instances ins = createInstances(new File("temp10.csv"));
             ins.setClassIndex(0);
@@ -55,6 +61,11 @@ public class WekaData {
     
     public static ArrayList<Double> cluster(String str) {
         ArrayList<Double> dataset = null;
+        try {
+            createCSV.createCSVFile();
+        } catch (IOException | SQLException ex) {
+            Logger.getLogger(WekaData.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             Instances data = createInstances(new File("temp11.csv"));
             if (str.equals("salary")) {
