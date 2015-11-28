@@ -1,5 +1,6 @@
 package javagroupproject;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -74,12 +75,18 @@ public class Dbconnection {
     
     /**
      * This method is to append data to database
-     * @param filepath
-     * @throws ClassNotFoundException
-     * @throws SQLException 
+     * @param filepath 
      */
     public static void connectDatabase(String filepath){
         Dataset data = null;
+        File file = new File("temp10.csv");
+        File file2 = new File("temp11.csv");
+        
+        if(file.exists()){
+            file.delete();
+            file2.delete();
+        }
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
