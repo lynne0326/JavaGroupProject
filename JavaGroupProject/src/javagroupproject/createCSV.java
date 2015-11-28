@@ -50,7 +50,7 @@ public class createCSV {
                                 + rs.getString("Highesteducationalattainment") + " "
                                 + GPA + " "
                                 + rs.getString("Modeofattendance") + " "
-                                + rs.getString("GraduateGrade") + " "
+//                                + rs.getString("GraduateGrade") + " "
                                 + "\n");
                         fw2.write(rs.getString("salary")  + "," + GPA + "\n");
                     }   }
